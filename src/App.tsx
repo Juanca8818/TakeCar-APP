@@ -38,7 +38,8 @@ import Tab3 from './components/Tab3';
 import Tab6 from './components/Tab6';
 import UsuarioState from "./context/UsuarioState"
 import './App.css'
-import ImagenFly from "./images/fly.jpg"
+//import ImagenFly from "./images/fly.jpg"
+import ImagenFly from "./images/takecarlogo.jpg"
 
 const App: React.FC = () => (
   <UsuarioState>
