@@ -5,5 +5,8 @@
 .tituloLogin{
     text-align: center;
     margin:2rem;
-    
+
+}
+.inputs{
+    padding: 10px;
 }

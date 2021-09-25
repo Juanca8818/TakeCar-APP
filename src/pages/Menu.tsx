@@ -20,6 +20,7 @@ import Tab2 from '../components/Tab2';
 import Tab3 from '../components/Tab3';
 import Tab4 from '../components/Tab4';
 import Tab5 from '../components/Tab5';
+
 import Imagennoti from "../images/notifications.svg"
 import Login from './Login'
 import './Menu.css';
@@ -47,15 +48,15 @@ import {descarga} from '../firebaseConfig';
 
 
 const Menu: React.FC = () => {
-  
-  
+
+
 
  return(
-    
+
   <IonApp className="todo">
   <IonReactRouter>
-  
-   
+
+
     <IonTabs>
       <IonRouterOutlet id="scheduleAppM1">
         <Route exact path="/tab1">
@@ -64,27 +65,27 @@ const Menu: React.FC = () => {
         <Route exact path="/tab2">
           <Tab2 />
         </Route>
-  
-        
-        <Route exact path="/tab5">         
-          <Tab5 />          
+
+
+        <Route exact path="/tab5">
+          <Tab5 />
         </Route>
-        
-        
-               
+
+
+
         <Route exact path="/menu">
           {/* <Redirect to="/tab1" /> */}
-          <Redirect to="/tab5" />       
-          
+          <Redirect to="/tab5" />
+
         </Route>
-        
-        
+
+
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
 
-        <IonTabButton tab="tab1" href="/tab1">         
+        <IonTabButton tab="tab1" href="/tab1">
         <IonIcon icon={home} />
-          <IonLabel>Home</IonLabel>          
+          <IonLabel>Home</IonLabel>
         </IonTabButton>
 
         <IonTabButton tab="tab2" href="/tab2">
@@ -92,25 +93,28 @@ const Menu: React.FC = () => {
           <IonLabel>Vuelos</IonLabel>
         </IonTabButton>
 
-       
 
-        
+
+
         <IonTabButton tab="tab5" href="/tab5">
           <IonIcon icon={Imagennoti} />
           <IonLabel>Alertas</IonLabel>
         </IonTabButton>
 
-       
+        <IonTabButton tab="tab6" href="/tab6">
+          <IonIcon icon={Imagennoti} />
+          <IonLabel>Alertas</IonLabel>
+        </IonTabButton>
       </IonTabBar>
     </IonTabs>
-    
+
   </IonReactRouter>
-  
- 
-  
+
+
+
 </IonApp>
 
-  
+
 )};
 
 export default Menu;
