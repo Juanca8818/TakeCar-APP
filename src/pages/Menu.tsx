@@ -15,7 +15,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { home, square, triangle, moon,star,flame,car, globe,man,person, cardSharp } from 'ionicons/icons';
-import Tab1 from '../components/Tab1';
+import Home from '../components/Home';
 import Tab2 from '../components/Tab2';
 import Tab3 from '../components/Tab3';
 import Tab4 from '../components/Tab4';
@@ -60,7 +60,7 @@ const Menu: React.FC = () => {
     <IonTabs>
       <IonRouterOutlet id="scheduleAppM1">
         <Route exact path="/tab1">
-          <Tab1 />
+          <Home />
         </Route>
         <Route exact path="/tab2">
           <Tab2 />
