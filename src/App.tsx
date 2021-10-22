@@ -35,6 +35,7 @@ import './theme/variables.css';
 import Login from './pages/Login';
 import Menu from './pages/Menu';
 import Tab3 from './components/Tab3';
+import Tab6 from './components/Tab6';
 import UsuarioState from "./context/UsuarioState"
 import './App.css'
 //import ImagenFly from "./images/fly.jpg"
@@ -58,9 +59,9 @@ const App: React.FC = () => (
           <IonMenuToggle>
             <IonItem routerLink="/tab3"  ><IonIcon color="medium" slot="start" icon={person}></IonIcon><IonLabel>Perfil</IonLabel></IonItem>
           </IonMenuToggle>
-         
 
-         
+
+
           <IonMenuToggle>
             <IonItem   ><IonIcon color="medium" slot="start" icon={alertCircle}></IonIcon><IonLabel>Notificar ausencia</IonLabel></IonItem>
           </IonMenuToggle>
@@ -68,7 +69,7 @@ const App: React.FC = () => (
             <IonItem routerLink="/" ><IonIcon color="medium" slot="start" icon={logOut}></IonIcon><IonLabel>Cerrar Sesion</IonLabel></IonItem>
           </IonMenuToggle>
           <img className="imagenHeader2"src={ImagenFly}/>
-        
+
         </IonList>
       </IonContent>
     </IonMenu>
@@ -78,9 +79,10 @@ const App: React.FC = () => (
         <Route path="/menu" component={Menu}exact/>
         <Route path="/tab3" component={Tab3}exact/>
         <Route path="/tab3" component={Tab3}exact/>
+        <Route path="/tab6" component={Tab6}exact/>
         <Redirect to="/"/>
       </IonRouterOutlet>
-     
+
     </IonReactRouter>
   </IonApp>
   </UsuarioState>

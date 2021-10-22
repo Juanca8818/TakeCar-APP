@@ -1,6 +1,6 @@
 /* Without setting height the slides will take up the height of the slide's content */
 ion-slides {
-  height: 100%;
+  height: auto;
 }
 
 .parrafoSlide{
@@ -9,7 +9,7 @@ ion-slides {
 
 .swiper-slide {
   display: block;
-  
+
 }
 
 .swiper-slide h2 {
@@ -32,15 +32,21 @@ p {
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 2rem;
-  
+
   color: var(--ion-color-step-600, #60646b);
-  
+
 }
 
 p b {
   color: var(--ion-text-color, #000000);
 }
-    
-
-  
- 
+.card{
+  background-color: #F8F7F2;
+}
+.title{
+  font-size: 14px;
+  font-weight: bold;
+}
+.carText{
+  justify-content: flex-start;
+}
