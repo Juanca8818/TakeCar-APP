@@ -84,7 +84,7 @@ export const Home: React.FC = () => {
                   </IonItem>
                   <IonItem button onClick={() => { }}>
                       <IonLabel>
-                          Button Item
+
                       </IonLabel>
                   </IonItem>
 
