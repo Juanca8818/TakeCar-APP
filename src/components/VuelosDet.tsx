@@ -1,6 +1,6 @@
 import { IonBadge,IonChip,IonModal,IonList,IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, IonLabel, IonCard, IonPage, IonCardContent, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonItem } from '@ionic/react';
 import React, { useState,useEffect,useContext } from 'react';
-import DetalleDelDetalle from './DetalleDelDetalle'
+import Turnos from './Turnos'
 import './VuelosDet.css';
 import {descarga} from '../firebaseConfig';
 
@@ -17,12 +17,12 @@ const VuelosDet: React.FC =() => {
   const [vuelos, guardarVuelos]:Array<any> = useState(['']);
 
   useEffect(()=>{
-    
+
     obtener();
-    
+
 
   },[user,vuelos])
-  
+
 
   const obtener=()=>{
     const averga =JSON.parse(localStorage.getItem('vuel') || '{}');
@@ -47,13 +47,13 @@ guardarVuelos(vuelosTotales.filter((vu:any)=>vu.id!=='infoPerfil'))
     <IonPage>
     <IonContent>
 
-    <IonContent>   
+    <IonContent>
 
 {vuelos.map((vuelo:any)=>(
-  
 
-  <DetalleDelDetalle
-  
+
+  <Turnos
+
     vuelo={vuelo}
 
   />

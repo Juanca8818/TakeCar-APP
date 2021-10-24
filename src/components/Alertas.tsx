@@ -1,35 +1,42 @@
 import React from 'react';
-import { IonList, IonTitle, IonAvatar,  IonItemSliding, IonItem, IonLabel, IonItemOptions, IonItemOption, IonIcon, IonNote, IonPage } from '@ionic/react';
-import { checkmarkSharp} from 'ionicons/icons';
+import {
+    IonList,
+    IonTitle,
+    IonAvatar,
+    IonItemSliding,
+    IonItem,
+    IonLabel,
+    IonItemOptions,
+    IonItemOption,
+    IonIcon,
+    IonNote,
+    IonPage,
+    IonText, IonContent, IonToolbar, IonMenuButton, IonHeader, IonCard, IonCardHeader, IonCardContent, IonImg
+} from '@ionic/react';
+import {build, checkmarkSharp} from 'ionicons/icons';
 import ImgInfo from "../images/info.svg"
-
-import './Tab5.css';
-
-const Tab5: React.FC = () => {
+import takecar from '../images/takecar.png';
+import './tripulantes.css';
+import './Alertas.css';
+const Alertas: React.FC = () => {
     return (
 <IonPage>
+  {/*
 <IonList>
 
-      {/* Sliding item with text options on both sides */}
-  
+
       <br></br>
      <IonItem>
       <IonTitle><b>Alertas</b></IonTitle>
     </IonItem>
-    
+
   <br></br>
 
-  <img className="centrada"src={ImgInfo} alt="centered image" width="100" height="100" /> 
-  
-  <br></br>  
+  <img className="centrada"src={ImgInfo} alt="centered image" width="100" height="100" />
+
   <br></br>
-  
-    
-  
-  
- 
-  
-  {/* Sliding item with expandable options on both sides */}
+  <br></br>
+
   <IonItemSliding>
     <IonItemOptions side="start">
       <IonItemOption color="danger" expandable>
@@ -46,7 +53,7 @@ const Tab5: React.FC = () => {
         Archivar
       </IonItemOption>
     </IonItemOptions>
-  </IonItemSliding>   
+  </IonItemSliding>
 
   <IonItemSliding>
     <IonItemOptions side="start">
@@ -82,53 +89,63 @@ const Tab5: React.FC = () => {
       Archivar
       </IonItemOption>
     </IonItemOptions>
-  </IonItemSliding> 
-  
-  {/* <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nuevas Novedades</b></IonLabel>
-    </IonItem>
+  </IonItemSliding>
 
-    <IonItemOptions side="end">
-
-
-    <IonItemOptions side="start">
-      <IonItemOption color="danger" expandable>
-        Borrar
-      </IonItemOption>
-    </IonItemOptions>
-      
-      
-      <IonItemOption color="tertiary" expandable>
-        Archivar
-      </IonItemOption>
-    </IonItemOptions>
-    <IonItemSliding>
-
-    
-  </IonItemSliding>  */}
 
 
   <br></br>
-  
-  <br></br>
-  
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
-  
-  
 
-  
+  <br></br>
 
-  
-  
-  
-</IonList>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+  <br></br>
+
+
+
+
+
+
+
+
+</IonList>*/}
+    <IonContent fullscreen>
+        <IonHeader>
+            <IonToolbar>
+                <IonMenuButton color="primary"slot="start"/>
+                <IonTitle>Notificaciones</IonTitle>
+            </IonToolbar>
+        </IonHeader>
+        <IonContent  slot="fixed" >
+            <IonCard className={'container'}>
+                <IonCardHeader>
+                    <IonIcon className={'icon'} size="large" icon={build}/>
+                    <IonImg src={takecar}></IonImg>
+                </IonCardHeader>
+                <IonCardContent className={'icon'}>
+                    Funcionalidad en construcción
+                </IonCardContent>
+
+            </IonCard>
+
+        </IonContent>
+    </IonContent>
+
+
+
+
+
+
+
+
+
+
+
 </IonPage>
 );
 }
-export default Tab5;
+export default Alertas;

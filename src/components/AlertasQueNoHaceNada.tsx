@@ -8,7 +8,7 @@ import { calendar, pin, time, warning, walk, shieldHalf,  checkmarkDone, checkma
 
 
 
-const Tab4: React.FC = () => {
+const AlertasQueNoHaceNada: React.FC = () => {
 
 
 
@@ -20,12 +20,12 @@ const Tab4: React.FC = () => {
   const [vuelos, guardarVuelos]:Array<any> = useState(['']);
 
   useEffect(()=>{
-    
+
     obtener();
-    
+
 
   },[user])
- 
+
 
   const obtener=()=>{
     const averga =JSON.parse(localStorage.getItem('vuel') || '{}');
@@ -54,7 +54,7 @@ async function login(){
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <br></br>        
+          <br></br>
           <IonTitle><b>Alertas</b></IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -66,24 +66,24 @@ async function login(){
         </IonHeader>
 
 
-    <IonContent 
+    <IonContent
     scrollEvents={true}
     scroll-y={true}
-        
+
     >
 
 
           <IonCard>
-            
+
 
           </IonCard>
-           
+
           <IonList>
-          
-          
-            <IonItem  >  
+
+
+            <IonItem  >
             <IonIcon icon={checkboxOutline}  /><IonLabel color="dark" ><b>Tienes una nueva guardia</b></IonLabel>
-            </IonItem>  
+            </IonItem>
 
             <IonItem  >
 
@@ -100,7 +100,7 @@ async function login(){
             <IonIcon icon={checkboxOutline}  /><IonLabel color="dark" ><b>Revisá el estado del tránsito</b></IonLabel>
             </IonItem>
 
-           
+
 
 
           </IonList>
@@ -112,4 +112,4 @@ async function login(){
   );
 };
 
-export default Tab4;
+export default AlertasQueNoHaceNada;

@@ -11,28 +11,23 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-  IonButton,IonMenu,IonHeader,IonToolbar,IonTitle,IonContent,IonList,IonItem, IonMenuToggle
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { home, square, triangle, moon,star,flame,car, globe,man,person, cardSharp } from 'ionicons/icons';
+import {
+  home,
+  calendar,
+  notifications
+} from 'ionicons/icons';
 import Home from '../components/Home';
-import Tab2 from '../components/Tab2';
-import Tab3 from '../components/Tab3';
-import Tab4 from '../components/Tab4';
-import Tab5 from '../components/Tab5';
-
-import Imagennoti from "../images/notifications.svg"
-import Login from './Login'
+import TurnosTab from '../components/TurnosTab';
+import Alertas from '../components/Alertas';
 import './Menu.css';
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
-
 /* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
-
 /* Optional CSS utils that can be commented out */
 import '@ionic/react/css/padding.css';
 import '@ionic/react/css/float-elements.css';
@@ -48,34 +43,28 @@ import {descarga} from '../firebaseConfig';
 
 
 const Menu: React.FC = () => {
-
-
-
  return(
-
   <IonApp className="todo">
   <IonReactRouter>
-
-
     <IonTabs>
       <IonRouterOutlet id="scheduleAppM1">
-        <Route exact path="/tab1">
+        <Route exact path="/home">
           <Home />
         </Route>
-        <Route exact path="/tab2">
-          <Tab2 />
+        <Route exact path="/turnos">
+          <TurnosTab />
         </Route>
 
 
-        <Route exact path="/tab5">
-          <Tab5 />
+        <Route exact path="/alertas">
+          <Alertas />
         </Route>
 
 
 
         <Route exact path="/menu">
           {/* <Redirect to="/tab1" /> */}
-          <Redirect to="/tab5" />
+          <Redirect to="/home" />
 
         </Route>
 
@@ -83,28 +72,24 @@ const Menu: React.FC = () => {
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
 
-        <IonTabButton tab="tab1" href="/tab1">
+        <IonTabButton tab="home" href="/home">
         <IonIcon icon={home} />
-          <IonLabel>Home</IonLabel>
+          <IonLabel>Inicio</IonLabel>
         </IonTabButton>
 
-        <IonTabButton tab="tab2" href="/tab2">
-          <IonIcon icon={car} />
-          <IonLabel>Vehículo</IonLabel>
+        <IonTabButton tab="turnos" href="/turnos">
+          <IonIcon icon={calendar} />
+          <IonLabel>Turnos</IonLabel>
         </IonTabButton>
 
 
 
 
-        <IonTabButton tab="tab5" href="/tab5">
-          <IonIcon icon={Imagennoti} />
+        <IonTabButton tab="alertas" href="/alertas">
+          <IonIcon icon={notifications} />
           <IonLabel>Alertas</IonLabel>
         </IonTabButton>
 
-        <IonTabButton tab="tab6" href="/tab6">
-          <IonIcon icon={Imagennoti} />
-          <IonLabel>Alertas</IonLabel>
-        </IonTabButton>
       </IonTabBar>
     </IonTabs>
 

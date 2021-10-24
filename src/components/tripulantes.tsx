@@ -5,17 +5,17 @@ import { IonButton, IonItem, IonList, IonIcon, IonAvatar, IonLabel, IonContent, 
 import ImgPiloto from "../images/piloto.svg"
 import ImgComandante from "../images/comandante.svg"
 import ImgTripulante from "../images/tripulantes.svg"
-import './Tab5.css';
+import './tripulantes.css';
 
 const Body: React.FC<{
 
- 
+
 
   count: number;
   onDismiss: () => void;
   onIncrement: () => void;
 }> = ({ count, onDismiss, onIncrement }) => (
-  
+
   <div>
     <IonHeader translucent>
       <IonToolbar>
@@ -53,7 +53,7 @@ const Body: React.FC<{
 
       <IonList>
         <IonItem>
-            <IonAvatar slot="start">          
+            <IonAvatar slot="start">
                <img src={ImgComandante} />
             </IonAvatar>
           <IonLabel>
@@ -114,7 +114,7 @@ const ModalExample: React.FC = () => {
   const handleDismiss = () => {
     dismiss();
   };
- 
+
   /**
    * First parameter is the component to show, second is the props to pass
    */
@@ -125,22 +125,22 @@ const ModalExample: React.FC = () => {
   });
 
   return (
-    
+
       <IonContent>
-      
-        <IonButton className="centrada" color="medium" 
-          
+
+        <IonButton className="centrada" color="medium"
+
           shape="round" fill="outline"
           onClick={() => {
             present({
               cssClass: 'my-class',
             });
           }}
-        >          
+        >
         Ver más tripulantes
-        </IonButton>       
+        </IonButton>
       </IonContent>
-    
+
   );
 };
 

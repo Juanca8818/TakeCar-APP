@@ -82,15 +82,14 @@ export const Home: React.FC = () => {
                           Button Item
                       </IonLabel>
                   </IonItem>
-                  <IonItem button onClick={() => { }}>
-                      <IonLabel>
-
-                      </IonLabel>
-                  </IonItem>
-
               </IonCardContent>
           </IonCard>
           <IonGrid>
+              Menu
+
+              Inicio
+              Turnos próximos
+
               <IonRow>
                   <IonCol><IonButton style={{width:'100%'}}>Seguro</IonButton></IonCol>
                   <IonCol><IonButton style={{width:'100%'}}>Otros</IonButton></IonCol>

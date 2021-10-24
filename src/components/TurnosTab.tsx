@@ -12,7 +12,7 @@ import ImagenPerfil from "../images/logo2.jpg"
 
 import './Tab2.css';
 
-const Tab2: React.FC = () => {
+const TurnosTab: React.FC = () => {
   const [showAlert2, setShowAlert2] = useState(false);
 
   return (
@@ -25,22 +25,22 @@ const Tab2: React.FC = () => {
       </IonToolbar>
     </IonHeader>
 
-    <IonContent>  
+    <IonContent>
 
-      <IonCardHeader ><img src={ImagenPerfil} /> </IonCardHeader> 
+      <IonCardHeader ><img src={ImagenPerfil} /> </IonCardHeader>
 
     </IonContent>
-    
-    
-          
-    <IonContent>     
-      
+
+
+
+    <IonContent>
+
         <VuelosDet
-        
+
          />
-    
+
     </IonContent>
-    
+
     <IonAlert
         isOpen={showAlert2}
         onDidDismiss={() => setShowAlert2(false)}
@@ -55,14 +55,14 @@ const Tab2: React.FC = () => {
             <IonLabel color="primary"><b>Notificar Ausencia</b></IonLabel>
             <IonToggle color="primary" value="sausage" />
           </IonItem> */}
-        
+
 
 
   </IonPage>
-  
 
-  
+
+
 );
 
 }
-export default Tab2;
+export default TurnosTab;

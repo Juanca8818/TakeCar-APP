@@ -34,12 +34,14 @@ import './theme/variables.css';
 
 import Login from './pages/Login';
 import Menu from './pages/Menu';
-import Tab3 from './components/Tab3';
+import MiPerfil from './components/MiPerfil';
 import Tab6 from './components/Tab6';
 import UsuarioState from "./context/UsuarioState"
 import './App.css'
 //import ImagenFly from "./images/fly.jpg"
 import ImagenFly from "./images/takecarlogo.jpg"
+import Home from "./components/Home";
+import Construccion from './components/Construccion';
 
 const App: React.FC = () => (
   <UsuarioState>
@@ -57,13 +59,7 @@ const App: React.FC = () => (
             <IonItem routerLink="/menu"  ><IonIcon color="medium" slot="start" icon={home}></IonIcon><IonLabel>Home</IonLabel></IonItem>
           </IonMenuToggle>
           <IonMenuToggle>
-            <IonItem routerLink="/tab3"  ><IonIcon color="medium" slot="start" icon={person}></IonIcon><IonLabel>Perfil</IonLabel></IonItem>
-          </IonMenuToggle>
-
-
-
-          <IonMenuToggle>
-            <IonItem   ><IonIcon color="medium" slot="start" icon={alertCircle}></IonIcon><IonLabel>Notificar ausencia</IonLabel></IonItem>
+            <IonItem routerLink="/miperfil"  ><IonIcon color="medium" slot="start" icon={person}></IonIcon><IonLabel>Perfil</IonLabel></IonItem>
           </IonMenuToggle>
           <IonMenuToggle>
             <IonItem routerLink="/" ><IonIcon color="medium" slot="start" icon={logOut}></IonIcon><IonLabel>Cerrar Sesion</IonLabel></IonItem>
@@ -75,14 +71,16 @@ const App: React.FC = () => (
     </IonMenu>
 
       <IonRouterOutlet id="scheduleAppM1">
-        <Route path="/" component={Login}exact/>
-        <Route path="/menu" component={Menu}exact/>
-        <Route path="/tab3" component={Tab3}exact/>
-        <Route path="/tab3" component={Tab3}exact/>
-        <Route path="/tab6" component={Tab6}exact/>
+        <Route path="/" component={Login} exact/>
+        <Route path="/menu" component={Menu} exact/>
+        <Route path="/miperfil" component={MiPerfil} exact/>
+        <Route path="/tab6" component={Tab6} exact/>
+        <Route path="/home" component={Home} exact/>
+        <Route path="/construccion" component={Construccion} exact/>
+
         <Redirect to="/"/>
       </IonRouterOutlet>
-
+s
     </IonReactRouter>
   </IonApp>
   </UsuarioState>

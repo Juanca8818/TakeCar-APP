@@ -3,7 +3,7 @@ import { IonList, IonTitle, IonAvatar,  IonItemSliding, IonItem, IonLabel, IonIt
 import { checkmarkSharp} from 'ionicons/icons';
 import ImgInfo from "../images/info.svg"
 
-import './Tab5.css';
+import './tripulantes.css';
 
 const Tab6: React.FC = () => {
     return (
