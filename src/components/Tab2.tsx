@@ -6,7 +6,7 @@ import {descarga} from '../firebaseConfig';
 import UsuarioContext from '../context/UsuarioContext';
 import VuelosDet from "./VuelosDet"
 import ImagenPerfil from "../images/logo2.jpg"
-
+import ImagenTurno from "../images/turno.jpg"
 
 
 
@@ -21,14 +21,15 @@ const Tab2: React.FC = () => {
     <IonHeader>
       <IonToolbar>
         <br></br>
-        <IonTitle><b>Tus vuelos</b></IonTitle>
+        <IonTitle><b>Turnos</b></IonTitle>
       </IonToolbar>
     </IonHeader>
 
     <IonContent>  
-
-      <IonCardHeader ><img src={ImagenPerfil} /> </IonCardHeader> 
-
+    
+    <IonCardHeader>
+      
+      <img src={ImagenTurno} />  </IonCardHeader> 
     </IonContent>
     
     
@@ -47,7 +48,7 @@ const Tab2: React.FC = () => {
         cssClass='my-custom-class'
         header={'Nueva alerta'}
         //subHeader={'prueba'}
-        message={'Hay un nuevo vuelo de guardia'}
+        message={'Hay un nuevo turno asignado'}
         buttons={['Aceptar']}
       />
 

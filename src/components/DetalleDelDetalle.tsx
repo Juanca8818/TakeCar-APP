@@ -6,9 +6,13 @@ import ImagenRoma from "../images/coliseo.jpg"
 import ImagenLondres from "../images/london.jpg"
 import ImagenNY from "../images/ny.jpg"
 import ImagenLisboa from "../images/lisboa.jpg"
-import ImagenPCana from "../images/puntacana.jpg"
+//import ImagenPCana from "../images/puntacana.jpg"
+import ImagenPCana from "../images/Conce.jpg"
 
-import ImgDetalles from "../images/departures.svg"
+
+
+//import ImgDetalles from "../images/departures.svg"
+import ImgPin from "../images/pin.svg"
 import ImgDetalles1 from "../images/arrival.svg"
 import ImgDetalles2 from "../images/boarding.svg"
 import ImgDetalles3 from "../images/location.svg"
@@ -18,6 +22,7 @@ import ImgDetalles6 from "../images/airplane.svg"
 import ImgConfirmar from "../images/ok.svg"
 import ImgRechazar from "../images/no.svg"
 import ImgSeparador from "../images/separacion.svg"
+import ImgCar from "../images/car.svg"
 
 
 import './DetalleDelDetalle.css';
@@ -63,15 +68,16 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
           {props.vuelo.destino == 'LHR (UK)' ? <img src={ImagenLondres} /> : null}
           {props.vuelo.destino == 'JFK (NY)' ? <img src={ImagenNY} /> : null}
           {props.vuelo.destino == 'LIS (PT)' ? <img src={ImagenLisboa} /> : null}
+          {/* {props.vuelo.destino == 'PUJ (PU)' ? <img src={ImagenPCana} /> : null} */}
           {props.vuelo.destino == 'PUJ (PU)' ? <img src={ImagenPCana} /> : null}
           <IonList>
           
           <IonGrid text-align="center">
             
           
-              <IonRow>
               
-                <IonCol>              
+              
+                {/* <IonCol>              
                   
                   <IonLabel><b>Origen </b> {props.vuelo.origen}</IonLabel>                 
                   
@@ -88,24 +94,23 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
 
                 <IonCol>
                         <IonLabel><b>Destino</b> {props.vuelo.destino} </IonLabel>     
-                </IonCol>
-              </IonRow>         
+                </IonCol> */}
+                       
               </IonGrid>
           
-            <IonItem >
-              <IonLabel> {props.vuelo.numeroVuelo}</IonLabel>
-              <IonIcon icon={ImgDetalles2} slot="start" />
-            </IonItem>
-
             <IonItem  >
-              <IonLabel className="vuelos"> {props.vuelo.partida} </IonLabel>
-              <IonIcon icon={ImgDetalles} slot="start" />
+              <IonLabel className="vuelos">{props.vuelo.numeroVuelo}</IonLabel>
+              <IonIcon icon={ImgDetalles4} slot="start" />
             </IonItem>
-            
+                
+            <IonItem  >              
+              <IonLabel className="vuelos">{props.vuelo.partida}</IonLabel>
+              <IonIcon icon={ImgCar} slot="start" />
+            </IonItem>      
             
             <IonItem  >
-              <IonLabel className="vuelos">{props.vuelo.llegada} </IonLabel>
-              <IonIcon icon={ImgDetalles1} slot="start" />
+              <IonLabel className="vuelos">{props.vuelo.llegada}</IonLabel>
+              <IonIcon icon={ImgDetalles4} slot="start" />
             </IonItem>   
 
             <IonItem  >
@@ -122,8 +127,9 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
               <IonLabel> {props.vuelo.avion}</IonLabel>
               <IonIcon icon={ImgDetalles6} slot="start" />
             </IonItem>
-            <IonItem >             
-              <Tripulantes/>           
+            <IonItem >     
+              {/* Para hacer el historial de turnos         */}
+              {/* <Tripulantes/>             */}
             </IonItem>      
                
 
@@ -133,7 +139,15 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
         </IonModal>
         
         
-        <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="tertiary" slot="end" expand="full">
+        {/* <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="danger" slot="end" expand="full">
+        {props.vuelo.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
+          
+          <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>{confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}{confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
+          
+      
+        </IonButton></div> */}
+
+        <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="primary" slot="end" expand="full">
         {props.vuelo.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
           
           <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>{confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}{confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
@@ -147,7 +161,7 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
             present({              
               cssClass: 'my-css',
               header: '¡Importante!',
-              message: 'Confirma la guardia?',
+              message: 'Confirma el turno?',
               
               
               buttons: [
@@ -177,7 +191,7 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
         header={'¡Alerta!'}
         
         
-        message=  {'Hay un nuevo vuelo de guardia'}
+        message=  {'Hay un nuevo turno asignado'}
         buttons={['Aceptar']}
         
       />
@@ -187,7 +201,7 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
         isOpen={showActionSheet}
         
         cssClass='my-custom-class'
-        header={"¡Nuevo vuelo de guardia!"}
+        header={"¡Hay un nuevo turno asignado!"}
         animated={true}
         backdropDismiss={false}
         

@@ -14,7 +14,7 @@ import {
   IonButton,IonMenu,IonHeader,IonToolbar,IonTitle,IonContent,IonList,IonItem, IonMenuToggle
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { home, square, triangle, moon,star,flame,car, globe,man,person, cardSharp } from 'ionicons/icons';
+import { home, calendar, square, triangle, moon,star,flame,car, globe,man,person, cardSharp } from 'ionicons/icons';
 import Home from '../components/Home';
 import Tab2 from '../components/Tab2';
 import Tab3 from '../components/Tab3';
@@ -90,7 +90,7 @@ const Menu: React.FC = () => {
 
         <IonTabButton tab="tab2" href="/tab2">
           <IonIcon icon={car} />
-          <IonLabel>Vehículo</IonLabel>
+          <IonLabel>Turnos</IonLabel>
         </IonTabButton>
 
 
@@ -101,10 +101,10 @@ const Menu: React.FC = () => {
           <IonLabel>Alertas</IonLabel>
         </IonTabButton>
 
-        <IonTabButton tab="tab6" href="/tab6">
+        {/* <IonTabButton tab="tab6" href="/tab6">
           <IonIcon icon={Imagennoti} />
           <IonLabel>Alertas</IonLabel>
-        </IonTabButton>
+        </IonTabButton> */}
       </IonTabBar>
     </IonTabs>
 

@@ -9,63 +9,70 @@ import {
     IonPage,
     IonButton,
     IonMenuButton,
+    IonAvatar,
+    IonList,
     IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonItem, IonLabel, IonGrid, IonRow, IonCol
 } from '@ionic/react';
+import autoPerfil from "../images/etios.jpg"
+import autoBackPerfil from "../images/etiosback.jpg"
 import { swapVertical } from 'ionicons/icons';
 import './Home.css';
 
 const slideOpts = {
-  initialSlide: 1,
-  autoplay:true,
-  speed: 400
+    initialSlide: 1,
+    autoplay: true,
+    speed: 400
 };
 export const Home: React.FC = () => {
-  return (
-  <IonPage>
-  <IonContent fullscreen class="ion-padding" scroll-y="false">
-    <IonHeader>
-        <IonToolbar>
-          <IonMenuButton color="primary"slot="start"/>
-          <IonTitle>Inicio</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
+    return (
+        <IonPage>
+            <IonContent fullscreen class="ion-padding" scroll-y="false">
+                <IonHeader>
+                    <IonToolbar>
+                        <IonMenuButton color="primary" slot="start" />
+                        <IonTitle>Mi vehículo</IonTitle>
+                    </IonToolbar>
+                </IonHeader>
+                <IonContent fullscreen>           
+                
+                
+                    <IonSlides pager={true} options={slideOpts} >                    
+                        <IonSlide>
+                            <img src={autoPerfil} />
+                        </IonSlide>
+                        <IonSlide>
+                            <img src={autoBackPerfil} />
+                        </IonSlide>
+                    </IonSlides>
 
-              <IonSlides pager={true} options={slideOpts}>
-                  <IonSlide>
-                  <IonCard className={'card'}>
-                      <IonCardHeader>
-                          <IonCardTitle className={"title"}>Datos del vehículo</IonCardTitle>
-                      </IonCardHeader>
-                      <IonCardContent>
-                          Modelo: Etios
-                      </IonCardContent>
-                      <IonCardContent>
-                          Año: 2000
-                      </IonCardContent><IonCardContent>
-                      Patente: AE754LP
-                  </IonCardContent>
-                  </IonCard>
-                  </IonSlide>
-                  <IonSlide>
-                      <IonCard className={'card'}>
-                          <IonCardHeader>
-                              <IonCardTitle className={"title"}>Datos del vehículo</IonCardTitle>
-                          </IonCardHeader>
-                          <IonCardContent>
-                              Modelo: Etios
-                          </IonCardContent>
-                          <IonCardContent>
-                              Año: 2000
-                          </IonCardContent><IonCardContent>
-                          Patente: AE754LP
-                      </IonCardContent>
-                      </IonCard>
-                  </IonSlide>
-              </IonSlides>
+                    <IonGrid>
+                    
+                        <IonRow>
+                            <IonCol>Marca:Etios</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>Modelo: XPS</IonCol>
+                        </IonRow>
+                                                <IonRow>
+                            <IonCol>Número de chasis: EER4567</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>Número de chasis: MAE6784</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>Año: 2018</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>Patente: AC180CD</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol>KM: 15000</IonCol>
+                        </IonRow>
+                    </IonGrid>
 
 
-          <IonCard className={'card'}>
+
+                    {/* <IonCard className={'card'}>
               <IonCardHeader>
                   <IonCardHeader>
                       <IonCardTitle className={"title"}>Turnos próximos</IonCardTitle>
@@ -89,17 +96,17 @@ export const Home: React.FC = () => {
                   </IonItem>
 
               </IonCardContent>
-          </IonCard>
-          <IonGrid>
-              <IonRow>
-                  <IonCol><IonButton style={{width:'100%'}}>Seguro</IonButton></IonCol>
-                  <IonCol><IonButton style={{width:'100%'}}>Otros</IonButton></IonCol>
-              </IonRow>
-              </IonGrid>
-  </IonContent>
-  </IonContent>
-  </IonPage>
-);
+          </IonCard> */}
+                    <IonGrid>
+                        <IonRow>
+                            <IonCol><IonButton style={{ width: '100%' }}>Seguro</IonButton></IonCol>
+                            <IonCol><IonButton style={{ width: '100%' }}>Otros</IonButton></IonCol>
+                        </IonRow>
+                    </IonGrid>
+                </IonContent>
+            </IonContent>
+        </IonPage>
+    );
 };
 
 
