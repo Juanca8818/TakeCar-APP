@@ -18,7 +18,7 @@
     
        }
        .action-sheet-title.sc-ion-action-sheet-md {
-                        color: blue;
+                        color: #BB4255;
                         height: fit-content;
                         text-align:center;
                         background-color:ghostwhite;
@@ -33,7 +33,7 @@
        
        .my-custom-class {
         
-        --button-color:black;
+        --button-color:#BB4255;
         justify-content: center;
         
         

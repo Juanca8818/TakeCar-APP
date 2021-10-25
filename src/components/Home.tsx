@@ -45,15 +45,14 @@ export const Home: React.FC = () => {
                         </IonSlide>
                     </IonSlides>
 
-                    <IonGrid>
-                    
+                                    
                         <IonRow>
                             <IonCol>Marca:Etios</IonCol>
                         </IonRow>
                         <IonRow>
                             <IonCol>Modelo: XPS</IonCol>
                         </IonRow>
-                                                <IonRow>
+                            <IonRow>
                             <IonCol>Número de chasis: EER4567</IonCol>
                         </IonRow>
                         <IonRow>
@@ -68,8 +67,8 @@ export const Home: React.FC = () => {
                         <IonRow>
                             <IonCol>KM: 15000</IonCol>
                         </IonRow>
-                    </IonGrid>
-
+                    
+                        
 
 
                     {/* <IonCard className={'card'}>
@@ -99,8 +98,9 @@ export const Home: React.FC = () => {
           </IonCard> */}
                     <IonGrid>
                         <IonRow>
-                            <IonCol><IonButton style={{ width: '100%' }}>Seguro</IonButton></IonCol>
-                            <IonCol><IonButton style={{ width: '100%' }}>Otros</IonButton></IonCol>
+                            <IonCol><IonButton size="small" style={{ width: '100%'}}>Seguro</IonButton></IonCol>
+                            
+                            <IonCol><IonButton size="small" style={{ width: '100%' }}>Otros</IonButton></IonCol>
                         </IonRow>
                     </IonGrid>
                 </IonContent>

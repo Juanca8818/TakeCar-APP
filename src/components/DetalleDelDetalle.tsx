@@ -11,8 +11,14 @@ import ImagenPCana from "../images/Conce.jpg"
 
 
 
-//import ImgDetalles from "../images/departures.svg"
+import ImgDetalles from "../images/departures.svg"
 import ImgPin from "../images/pin.svg"
+import ImgCar from "../images/car3.svg"
+import ImgCar2 from "../images/car4.svg"
+import ImgPerson from "../images/person.svg"
+import ImgTool from "../images/tool.svg"
+import ImgWa from "../images/what.svg"
+
 import ImgDetalles1 from "../images/arrival.svg"
 import ImgDetalles2 from "../images/boarding.svg"
 import ImgDetalles3 from "../images/location.svg"
@@ -22,7 +28,7 @@ import ImgDetalles6 from "../images/airplane.svg"
 import ImgConfirmar from "../images/ok.svg"
 import ImgRechazar from "../images/no.svg"
 import ImgSeparador from "../images/separacion.svg"
-import ImgCar from "../images/car.svg"
+
 
 
 import './DetalleDelDetalle.css';
@@ -100,32 +106,33 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
           
             <IonItem  >
               <IonLabel className="vuelos">{props.vuelo.numeroVuelo}</IonLabel>
-              <IonIcon icon={ImgDetalles4} slot="start" />
+              <IonIcon icon={ImgPin} slot="start" />
             </IonItem>
                 
-            <IonItem  >              
+            <IonItem  >                         
               <IonLabel className="vuelos">{props.vuelo.partida}</IonLabel>
-              <IonIcon icon={ImgCar} slot="start" />
+              <IonIcon icon={ImgCar} slot="start" />   
             </IonItem>      
             
             <IonItem  >
               <IonLabel className="vuelos">{props.vuelo.llegada}</IonLabel>
-              <IonIcon icon={ImgDetalles4} slot="start" />
+              <IonIcon icon={ImgCar2} slot="start" />
             </IonItem>   
 
             <IonItem  >
               <IonLabel className="vuelos">{props.vuelo.capacidad} </IonLabel>
-              <IonIcon icon={ImgDetalles4} slot="start" />
+              <IonIcon icon={ImgTool} slot="start" />
             </IonItem> 
+             
 
             <IonItem >
               <IonLabel className="vuelos">{props.vuelo.tiempo} </IonLabel>
-              <IonIcon icon={ImgDetalles5} slot="start" />
+              <IonIcon icon={ImgPerson} slot="start" />
             </IonItem>    
 
             <IonItem >
               <IonLabel> {props.vuelo.avion}</IonLabel>
-              <IonIcon icon={ImgDetalles6} slot="start" />
+              <IonIcon icon={ImgWa} slot="start" />
             </IonItem>
             <IonItem >     
               {/* Para hacer el historial de turnos         */}
@@ -161,7 +168,7 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
             present({              
               cssClass: 'my-css',
               header: '¡Importante!',
-              message: 'Confirma el turno?',
+              message: '¿Confirma el turno?',
               
               
               buttons: [

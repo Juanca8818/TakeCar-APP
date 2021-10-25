@@ -63,7 +63,7 @@ const App: React.FC = () => (
 
 
           <IonMenuToggle>
-            <IonItem   ><IonIcon color="medium" slot="start" icon={alertCircle}></IonIcon><IonLabel>Notificar ausencia</IonLabel></IonItem>
+            <IonItem   ><IonIcon color="medium" slot="start" icon={alertCircle}></IonIcon><IonLabel>versión 1.1</IonLabel></IonItem>
           </IonMenuToggle>
           <IonMenuToggle>
             <IonItem routerLink="/" ><IonIcon color="medium" slot="start" icon={logOut}></IonIcon><IonLabel>Cerrar Sesion</IonLabel></IonItem>
