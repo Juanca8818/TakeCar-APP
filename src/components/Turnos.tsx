@@ -6,9 +6,19 @@ import ImagenRoma from "../images/coliseo.jpg"
 import ImagenLondres from "../images/london.jpg"
 import ImagenNY from "../images/ny.jpg"
 import ImagenLisboa from "../images/lisboa.jpg"
-import ImagenPCana from "../images/puntacana.jpg"
+//import ImagenPCana from "../images/puntacana.jpg"
+import ImagenPCana from "../images/Conce.jpg"
+
+
 
 import ImgDetalles from "../images/departures.svg"
+import ImgPin from "../images/pin.svg"
+import ImgCar from "../images/car3.svg"
+import ImgCar2 from "../images/car4.svg"
+import ImgPerson from "../images/person.svg"
+import ImgTool from "../images/tool.svg"
+import ImgWa from "../images/what.svg"
+
 import ImgDetalles1 from "../images/arrival.svg"
 import ImgDetalles2 from "../images/boarding.svg"
 import ImgDetalles3 from "../images/location.svg"
@@ -18,6 +28,7 @@ import ImgDetalles6 from "../images/airplane.svg"
 import ImgConfirmar from "../images/ok.svg"
 import ImgRechazar from "../images/no.svg"
 import ImgSeparador from "../images/separacion.svg"
+
 
 
 import './Turnos.css';
@@ -30,47 +41,53 @@ import Tripulantes  from './tripulantes';
 const Turnos: React.FC<{ vuelo: any }> = props => {
 
 //cambiar el valor a true para que salga el aviso//
-  const [showAlert2, setShowAlert2] = useState(false);
+    const [showAlert2, setShowAlert2] = useState(false);
 
-  //cambiar el valor a true para que salga el aviso activo//
-  const [showActionSheet, setShowActionSheet] = useState(true);
+    //cambiar el valor a true para que salga el aviso activo//
+    const [showActionSheet, setShowActionSheet] = useState(true);
 
-  const [showModal, setShowModal] = useState(false);
-  const [confirmar, guardarConfirmar] = useState(false);
-  const [confirmar2, guardarConfirmar2] = useState(false);
-  const [elModal, guardarElModal] = useState(true);
-  const [present] = useIonAlert();
-
-
-  return (
-
-    <>
-      <IonCard
-
-      >
-
-        <IonModal isOpen={showModal} cssClass='my-custom-class'>
-
-          <IonCard>
-          </IonCard>
-          {props.vuelo.destino == 'FCO (RMA)' ? <img src={ImagenRoma} /> : null}
-          {props.vuelo.destino == 'LHR (UK)' ? <img src={ImagenLondres} /> : null}
-          {props.vuelo.destino == 'JFK (NY)' ? <img src={ImagenNY} /> : null}
-          {props.vuelo.destino == 'LIS (PT)' ? <img src={ImagenLisboa} /> : null}
-          {props.vuelo.destino == 'PUJ (PU)' ? <img src={ImagenPCana} /> : null}
-          <IonList>
-
-          <IonGrid text-align="center">
+    const [showModal, setShowModal] = useState(false);
+    const [confirmar, guardarConfirmar] = useState(false);
+    const [confirmar2, guardarConfirmar2] = useState(false);
+    const [elModal, guardarElModal] = useState(true);
+    const [present] = useIonAlert();
 
 
-              <IonRow>
+    return (
 
-                <IonCol>
+        <>
+            <IonCard
+
+            >
+
+                <IonModal isOpen={showModal} cssClass='my-custom-class'>
+
+                    <IonCard>
+
+
+
+
+
+
+                    </IonCard>
+                    {props.vuelo.destino == 'FCO (RMA)' ? <img src={ImagenRoma} /> : null}
+                    {props.vuelo.destino == 'LHR (UK)' ? <img src={ImagenLondres} /> : null}
+                    {props.vuelo.destino == 'JFK (NY)' ? <img src={ImagenNY} /> : null}
+                    {props.vuelo.destino == 'LIS (PT)' ? <img src={ImagenLisboa} /> : null}
+                    {/* {props.vuelo.destino == 'PUJ (PU)' ? <img src={ImagenPCana} /> : null} */}
+                    {props.vuelo.destino == 'PUJ (PU)' ? <img src={ImagenPCana} /> : null}
+                    <IonList>
+
+                        <IonGrid text-align="center">
+
+
+
+
+                            {/* <IonCol>
 
                   <IonLabel><b>Origen </b> {props.vuelo.origen}</IonLabel>
 
                 </IonCol>
-
                 <IonCol className="centrada">
 
                   <IonList>
@@ -79,130 +96,138 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
                   </IonList>
                   <IonLabel>{props.vuelo.escala}</IonLabel>
                 </IonCol>
-
                 <IonCol>
                         <IonLabel><b>Destino</b> {props.vuelo.destino} </IonLabel>
-                </IonCol>
-              </IonRow>
-              </IonGrid>
+                </IonCol> */}
 
-            <IonItem >
-              <IonLabel> {props.vuelo.numeroVuelo}</IonLabel>
-              <IonIcon icon={ImgDetalles2} slot="start" />
-            </IonItem>
+                        </IonGrid>
 
-            <IonItem  >
-              <IonLabel className="vuelos"> {props.vuelo.partida} </IonLabel>
-              <IonIcon icon={ImgDetalles} slot="start" />
-            </IonItem>
+                        <IonItem  >
+                            <IonLabel className="vuelos">{props.vuelo.numeroVuelo}</IonLabel>
+                            <IonIcon icon={ImgPin} slot="start" />
+                        </IonItem>
 
+                        <IonItem  >
+                            <IonLabel className="vuelos">{props.vuelo.partida}</IonLabel>
+                            <IonIcon icon={ImgCar} slot="start" />
+                        </IonItem>
 
-            <IonItem  >
-              <IonLabel className="vuelos">{props.vuelo.llegada} </IonLabel>
-              <IonIcon icon={ImgDetalles1} slot="start" />
-            </IonItem>
+                        <IonItem  >
+                            <IonLabel className="vuelos">{props.vuelo.llegada}</IonLabel>
+                            <IonIcon icon={ImgCar2} slot="start" />
+                        </IonItem>
 
-            <IonItem  >
-              <IonLabel className="vuelos">{props.vuelo.capacidad} </IonLabel>
-              <IonIcon icon={ImgDetalles4} slot="start" />
-            </IonItem>
-
-            <IonItem >
-              <IonLabel className="vuelos">{props.vuelo.tiempo} </IonLabel>
-              <IonIcon icon={ImgDetalles5} slot="start" />
-            </IonItem>
-
-            <IonItem >
-              <IonLabel> {props.vuelo.avion}</IonLabel>
-              <IonIcon icon={ImgDetalles6} slot="start" />
-            </IonItem>
-            <IonItem >
-              <Tripulantes/>
-            </IonItem>
+                        <IonItem  >
+                            <IonLabel className="vuelos">{props.vuelo.capacidad} </IonLabel>
+                            <IonIcon icon={ImgTool} slot="start" />
+                        </IonItem>
 
 
+                        <IonItem >
+                            <IonLabel className="vuelos">{props.vuelo.tiempo} </IonLabel>
+                            <IonIcon icon={ImgPerson} slot="start" />
+                        </IonItem>
 
-          </IonList>
-          <IonButton onClick={() => setShowModal(false)}>Cerrar</IonButton>
-        </IonModal>
+                        <IonItem >
+                            <IonLabel> {props.vuelo.avion}</IonLabel>
+                            <IonIcon icon={ImgWa} slot="start" />
+                        </IonItem>
+                        <IonItem >
+                            {/* Para hacer el historial de turnos         */}
+                            {/* <Tripulantes/>             */}
+                        </IonItem>
 
 
-        <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="tertiary" slot="end" expand="full">
+
+                    </IonList>
+                    <IonButton onClick={() => setShowModal(false)}>Cerrar</IonButton>
+                </IonModal>
+
+
+                {/* <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="danger" slot="end" expand="full">
         {props.vuelo.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
 
           <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>{confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}{confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
 
 
-        </IonButton></div>
+        </IonButton></div> */}
+
+                <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="primary" slot="end" expand="full">
+                    {props.vuelo.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
+
+                    <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>{confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}{confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
 
 
-      {showActionSheet?
-          <div  text-align="center"onClick={() =>
-            present({
-              cssClass: 'my-css',
-              header: '¡Importante!',
-              message: 'Confirma la guardia?',
+                </IonButton></div>
 
 
-              buttons: [
-                { text: 'Confirmar', handler: (d) => {setShowActionSheet(false);guardarConfirmar(true)} },
-                { text: 'Rechazar', handler: (d) => {setShowActionSheet(false);guardarConfirmar2(true);guardarElModal(false)} },
-              ],
-              onDidDismiss: (e) => {setShowActionSheet(false)},
-            })
-          } > <IonItem className="centrada2"><IonIcon icon={ImgConfirmar} size="medium" color="success" />
-
-              <IonText >Confirmar <IonIcon icon={ImgSeparador} size="medium"  /> Rechazar</IonText> <IonIcon icon={ImgRechazar} size="medium" color="danger" />
-
-             </IonItem>
-
-              </div>
-
-            :null}
+                {showActionSheet?
+                    <div  text-align="center"onClick={() =>
+                        present({
+                            cssClass: 'my-css',
+                            header: '¡Importante!',
+                            message: '¿Confirma el turno?',
 
 
+                            buttons: [
+                                { text: 'Confirmar', handler: (d) => {setShowActionSheet(false);guardarConfirmar(true)} },
+                                { text: 'Rechazar', handler: (d) => {setShowActionSheet(false);guardarConfirmar2(true);guardarElModal(false)} },
+                            ],
+                            onDidDismiss: (e) => {setShowActionSheet(false)},
+                        })
+                    } > <IonItem className="centrada2"><IonIcon icon={ImgConfirmar} size="medium" color="success" />
 
-      </IonCard>
+                        <IonText >Confirmar <IonIcon icon={ImgSeparador} size="medium"  /> Rechazar</IonText> <IonIcon icon={ImgRechazar} size="medium" color="danger" />
 
-      <IonAlert
-        isOpen={showAlert2}
+                    </IonItem>
 
-        cssClass='my-custom-class'
-        header={'¡Alerta!'}
+                    </div>
 
-
-        message=  {'Hay un nuevo vuelo de guardia'}
-        buttons={['Aceptar']}
-
-      />
-
-      <IonActionSheet
-
-        isOpen={showActionSheet}
-
-        cssClass='my-custom-class'
-        header={"¡Nuevo vuelo de guardia!"}
-        animated={true}
-        backdropDismiss={false}
-
-        buttons={[{
-          //icon: atCircleSharp,
-          text: 'Aceptar',
-          role: 'destructive',
-
-          handler: () => {
-            console.log('Delete clicked');
-          }
-        }
-
-        ]}
-      >
-      </IonActionSheet>
+                    :null}
 
 
 
-    </>
+            </IonCard>
 
-  );
+            <IonAlert
+                isOpen={showAlert2}
+
+                cssClass='my-custom-class'
+                header={'¡Alerta!'}
+
+
+                message=  {'Hay un nuevo turno asignado'}
+                buttons={['Aceptar']}
+
+            />
+
+            <IonActionSheet
+
+                isOpen={showActionSheet}
+
+                cssClass='my-custom-class'
+                header={"¡Hay un nuevo turno asignado!"}
+                animated={true}
+                backdropDismiss={false}
+
+                buttons={[{
+                    //icon: atCircleSharp,
+                    text: 'Aceptar',
+                    role: 'destructive',
+
+                    handler: () => {
+                        console.log('Delete clicked');
+                    }
+                }
+
+                ]}
+            >
+            </IonActionSheet>
+
+
+
+        </>
+
+    );
 }
 export default Turnos;

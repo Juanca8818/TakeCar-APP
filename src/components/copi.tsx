@@ -9,7 +9,7 @@ import ImgDetalles3 from "../images/location.svg"
 
 import { pin, time, calendar, warning, walk } from 'ionicons/icons';
 
-import './VuelosDet.css';
+import './TurnosDescripcion.css';
 
 
 
@@ -40,9 +40,9 @@ const VuelosDet: React.FC = () => {
       "ciudad": "Lima",
       "guardia": false
     }
-   
-    
-    
+
+
+
 
 
   ]
@@ -76,8 +76,8 @@ const VuelosDet: React.FC = () => {
                 <IonItem >
                   <IonLabel>AA123</IonLabel>
                   <IonIcon icon={ImgDetalles2} slot="start" />
-                </IonItem>          
-                
+                </IonItem>
+
 
                 <IonItem  >
                   <IonLabel className="vuelos">02:30am </IonLabel>
@@ -106,26 +106,26 @@ const VuelosDet: React.FC = () => {
 
 
             <div>
-             
+
 
                 {/* <IonBadge slot="start">{vuelo.dia}</IonBadge>
   <IonLabel><h6 className="vuelosLetra"><strong>{vuelo.mes}</strong></h6></IonLabel> */}
 
                 {/* <IonItem>
-                
+
                 {vuelo.guardia ? <IonButton onClick={() => setShowModal(true)} color="secondary" slot="end">
-                  
+
                 <IonIcon icon={calendar} slot="start" />
                 <IonLabel>8 de Mayo</IonLabel>
 
-                </IonButton> : 
+                </IonButton> :
                   <IonButton onClick={() => setShowAlert2(true)} color="secondary" slot="end">
                     <IonIcon icon={calendar} slot="start" />
-                <IonLabel>8 de Mayo</IonLabel> 
+                <IonLabel>8 de Mayo</IonLabel>
                 <IonLabel> Dar ok</IonLabel>
 
                   </IonButton>}
-                  
+
 
               </IonItem> */}
 

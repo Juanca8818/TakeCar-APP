@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { pin, time, wifi, wine, warning, walk } from 'ionicons/icons';
 import ImagenPerfil from "../images/logo2.jpg"
 
-import VuelosDet from "./VuelosDet"
+import TurnosDescripcion from "./TurnosDescripcion"
 
 
 
@@ -23,15 +23,15 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent>  
+      <IonContent>
 
-        <IonCardHeader ><img src={ImagenPerfil} /> </IonCardHeader> 
+        <IonCardHeader ><img src={ImagenPerfil} /> </IonCardHeader>
 
       </IonContent>
-      
-      <IonContent>   
+
+      <IonContent>
         {/* aca vemos el componente vuelosDet que en realidad es una CARD que puede mostrar DETALLES DE VUELO o DAR OK */}
-        <VuelosDet
+        <TurnosDescripcion
         />
       </IonContent>
     </IonPage>

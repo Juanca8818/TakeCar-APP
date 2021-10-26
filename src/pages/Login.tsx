@@ -61,7 +61,7 @@ const Login: React.FC=()=>{
         <IonContent>
         <div className='inputs'>
             <IonItem>
-                <IonLabel position="floating">Correo electrónico*</IonLabel>
+                <IonLabel position="floating">DNI</IonLabel>
                 <IonInput
                     name="email"
                     value={email}

@@ -62,6 +62,9 @@ const App: React.FC = () => (
             <IonItem routerLink="/miperfil"  ><IonIcon color="medium" slot="start" icon={person}></IonIcon><IonLabel>Perfil</IonLabel></IonItem>
           </IonMenuToggle>
           <IonMenuToggle>
+            <IonItem   ><IonIcon color="medium" slot="start" icon={alertCircle}></IonIcon><IonLabel>versión 1.1</IonLabel></IonItem>
+          </IonMenuToggle>
+          <IonMenuToggle>
             <IonItem routerLink="/" ><IonIcon color="medium" slot="start" icon={logOut}></IonIcon><IonLabel>Cerrar Sesion</IonLabel></IonItem>
           </IonMenuToggle>
           <img className="imagenHeader2"src={ImagenFly}/>

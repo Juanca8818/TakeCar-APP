@@ -16,8 +16,19 @@ import { IonReactRouter } from '@ionic/react-router';
 import {
   home,
   calendar,
+  square,
+  triangle,
+  moon,
+  star,
+  flame,
+  car,
+  globe,
+  man,
+  person,
+  cardSharp,
   notifications
 } from 'ionicons/icons';
+
 import Home from '../components/Home';
 import TurnosTab from '../components/TurnosTab';
 import Alertas from '../components/Alertas';
@@ -92,11 +103,7 @@ const Menu: React.FC = () => {
 
       </IonTabBar>
     </IonTabs>
-
   </IonReactRouter>
-
-
-
 </IonApp>
 
 

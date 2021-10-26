@@ -8,35 +8,34 @@
         justify-content: center;
         align-items: center;
         margin: auto;
-        
-    
+
+
        }
        .centrada2{
-      
+
         margin-left: 7px;
-        
-    
+
+
        }
        .action-sheet-title.sc-ion-action-sheet-md {
-                        color: blue;
+                        color: #BB4255;
                         height: fit-content;
                         text-align:center;
                         background-color:ghostwhite;
-                        
-                        
-                        
 
-                        
-                        
+
+
+
+
+
 
        }
-       
+
        .my-custom-class {
-        
-        --button-color:black;
-        justify-content: center;
-        
-        
-        
-        
+        --button-color:#BB4255;
+
+
+
+
+
       }
