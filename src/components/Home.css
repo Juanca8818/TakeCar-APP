@@ -50,3 +50,6 @@ p b {
 .carText{
   justify-content: flex-start;
 }
+.tab{
+  padding-top: 10px;
+}

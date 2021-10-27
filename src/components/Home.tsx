@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     IonSlides,
     IonSlide,
@@ -11,7 +11,7 @@ import {
     IonMenuButton,
     IonAvatar,
     IonList,
-    IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonItem, IonLabel, IonGrid, IonRow, IonCol
+    IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonItem, IonLabel, IonGrid, IonRow, IonCol, IonModal, IonInput
 } from '@ionic/react';
 import autoPerfil from "../images/etios.jpg"
 import autoBackPerfil from "../images/etiosback.jpg"
@@ -24,13 +24,15 @@ const slideOpts = {
     speed: 400
 };
 export const Home: React.FC = () => {
+    const [showModal, setShowModal] = useState(false);
+
     return (
         <IonPage>
-            <IonContent fullscreen class="ion-padding" scroll-y="false">
+            <IonContent fullscreen  scroll-y="false">
                 <IonHeader>
                     <IonToolbar>
-                        <IonMenuButton color="primary" slot="start" />
-                        <IonTitle>Inicio</IonTitle>
+                        <IonMenuButton className="tab" color="primary" slot="start" />
+                        <IonTitle className="tab">Inicio</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent fullscreen>
@@ -97,11 +99,17 @@ export const Home: React.FC = () => {
           </IonCard> */}
                     <IonGrid>
                         <IonRow>
-                            <IonCol><IonButton size="small" style={{ width: '100%'}}>Seguro</IonButton></IonCol>
+                            <IonCol><IonButton size="small" style={{ width: '100%'}}>Documentos</IonButton></IonCol>
 
-                            <IonCol><IonButton size="small" style={{ width: '100%' }}>Otros</IonButton></IonCol>
+                            <IonCol><IonButton fill='outline' size="small" style={{ width: '100%' }} onClick={() => setShowModal(true)}>Editar</IonButton></IonCol>
                         </IonRow>
                     </IonGrid>
+                </IonContent>
+                <IonContent>
+                    <IonModal cssClass='my-custom-class' isOpen={showModal}>
+                        <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton>
+                    </IonModal>
+
                 </IonContent>
             </IonContent>
         </IonPage>

@@ -63,12 +63,6 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
                 <IonModal isOpen={showModal} cssClass='my-custom-class'>
 
                     <IonCard>
-
-
-
-
-
-
                     </IonCard>
                     {props.vuelo.destino == 'FCO (RMA)' ? <img src={ImagenRoma} /> : null}
                     {props.vuelo.destino == 'LHR (UK)' ? <img src={ImagenLondres} /> : null}
@@ -79,10 +73,6 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
                     <IonList>
 
                         <IonGrid text-align="center">
-
-
-
-
                             {/* <IonCol>
 
                   <IonLabel><b>Origen </b> {props.vuelo.origen}</IonLabel>
