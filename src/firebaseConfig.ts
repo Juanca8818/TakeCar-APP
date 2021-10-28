@@ -33,13 +33,42 @@ export const fetchTurnos = async () =>{
                 userData.turnos.map(async turno => {
                     const turnoRef = await getDoc(turno);
                     // @ts-ignore
-                    turnos = [turnoRef.data().turno,...turnos];
+                    turnos = [{id: turnoRef.id, ...turnoRef.data()},...turnos];
                 })
 
            )
         }
     }
     return turnos
+}
+
+const filtrarTurnos = async (turnoFiltrado: string, turno:any) => {
+    const turnoSnapshot = await getDoc(turno);
+    if (turnoSnapshot.exists()){
+        return turnoSnapshot.id !== turnoFiltrado
+    }
+}
+
+export const rechazarTurno = async (turnoId: string) => {
+    const turnoRef = doc(db, 'turnos', turnoId);
+    const usersRef = collection(db, 'usuarios')
+    const userQuery = query(usersRef, where("username","==", "7777777"));
+    const userSnapshot = await getDocs(userQuery);
+    const userRef = doc(db,'usuarios', userSnapshot.docs[0].id)
+    await updateDoc(turnoRef, {cliente:null, estado:"disponible"})
+
+    let turnos = userSnapshot.docs[0].data().turnos
+    await Promise.all(turnos.filter(async (elem: any) => {
+        return await filtrarTurnos(turnoId, elem)
+    }))
+
+    await updateDoc(userRef, {turnos: turnos})
+}
+
+export const confirmarTurno = async (turnoId: string) => {
+    const turnoRef = doc(db, 'turnos', turnoId);
+    console.log(turnoRef);
+    await updateDoc(turnoRef, {estado: 'confirmado'})
 }
 
 // export const descarga= firebase.firestore();

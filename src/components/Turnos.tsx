@@ -48,15 +48,16 @@ import './Turnos.css';
 
 import UsuarioContext from '../context/UsuarioContext';
 import Tripulantes  from './tripulantes';
+import {capitalize} from "../utils";
 
 
-const Turnos: React.FC<{ turno: any }> = props => {
+const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
 
 //cambiar el valor a true para que salga el aviso//
     const [showAlert2, setShowAlert2] = useState(false);
 
     //cambiar el valor a true para que salga el aviso activo//
-    const [showActionSheet, setShowActionSheet] = useState(true);
+    const [showActionSheet, setShowActionSheet] = useState(props.turno.estado === 'pendiente');
 
     const [showModal, setShowModal] = useState(false);
     const [confirmar, guardarConfirmar] = useState(false);
@@ -67,8 +68,23 @@ const Turnos: React.FC<{ turno: any }> = props => {
 
     console.log(props.turno)
 
-    // @ts-ignore
-    // @ts-ignore
+    const confirmarHandler = (esConfirmado: boolean) =>{
+        props.setConfirmado(props.turno.id, esConfirmado).then()
+
+    }
+
+    const estadoTurno = () => {
+        const estado = props.turno.estado;
+        if (estado === 'confirmado'){
+            return (
+                <div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success"/></IonText> </div>
+            );
+        }
+        else if (estado === 'pendiente'){
+            return null
+        }
+    }
+
     // @ts-ignore
     return (
 
@@ -76,6 +92,7 @@ const Turnos: React.FC<{ turno: any }> = props => {
             <IonCard>
 
                 <IonModal isOpen={showModal} cssClass='my-custom-class'>
+                    <IonLabel  color="primary">{capitalize(props.turno.estado)}</IonLabel>
                     <IonList>
                         <IonItem  >
                             <IonLabel className="vuelos">{props.turno.ubicacion}</IonLabel>
@@ -115,14 +132,13 @@ const Turnos: React.FC<{ turno: any }> = props => {
 
                     <IonLabel><b>{props.turno.fecha}</b>
                     </IonLabel>
-
-                        {confirmar2?<div><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}
-                        {confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success"/></IonText> </div>:null}
+                        {/*{confirmar2?<div><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}*/}
+                        {estadoTurno()}
                     </IonButton>
                 </div>
 
 
-                {showActionSheet?
+                {props.turno.estado === 'pendiente'?
                     <div  text-align="center"onClick={() =>
                         present({
                             cssClass: 'my-css',
@@ -131,12 +147,13 @@ const Turnos: React.FC<{ turno: any }> = props => {
 
 
                             buttons: [
-                                { text: 'Aceptar fecha', handler: (d) => {setShowActionSheet(false);guardarConfirmar(true)} },
-                                { text: 'Nueva fecha', handler: (d) => { setShowModalNuevaFecha(true)}},
+                                { text: 'Aceptar fecha', handler: (d) => {confirmarHandler(true)} },
+                                { text: 'Nueva fecha', handler: (d) => {setShowModalNuevaFecha(true)}},
                             ],
-                            onDidDismiss: (e) => {setShowActionSheet(false)},
+                            // onDidDismiss: (e) => {setShowActionSheet(false)},
                         })
-                    } > <IonItem className="centrada2"><IonIcon icon={ImgConfirmar} size="medium" color="success" />
+                    } >
+                        <IonItem className="centrada2"><IonIcon icon={ImgConfirmar} size="medium" color="success" />
 
                         <IonText >Confirmar <IonIcon icon={ImgSeparador} size="medium"  /> Rechazar</IonText> <IonIcon icon={ImgRechazar} size="medium" color="danger" />
 

@@ -4,7 +4,7 @@ import Turnos from './Turnos'
 import './TurnosDescripcion.css';
 
 import UsuarioContext from '../context/UsuarioContext';
-import {fetchTurnos} from "../firebaseConfig";
+import {confirmarTurno, fetchTurnos} from "../firebaseConfig";
 
 const TurnosDescripcion: React.FC =() => {
 
@@ -42,12 +42,39 @@ const TurnosDescripcion: React.FC =() => {
 
   }
 
+  const setConfirmado = async (turnoId: string, esConfirmado: boolean) =>{
+    let aux: any[] | ((prevState: never[]) => never[]) = [];
+    await Promise.all(turnos.map(async turno => {
+      let turnoAux = turno;
+      // @ts-ignore
+      if (turno.id === turnoId){
+        console.log('turno encontrado')
+        if (esConfirmado) {
+          await confirmarTurno(turnoId)
+          console.log('confirmado')
+          // @ts-ignore
+          turnoAux.estado = 'confirmado';
+        }
+        else {
+          // @ts-ignore
+          turnoAux.estado = 'disponible';
+
+        }
+      }
+      // @ts-ignore
+      aux = [turnoAux, ...aux]
+    }))
+    // @ts-ignore
+    setTurnos(aux);
+  }
+
   return (
       <IonPage>
           <IonContent>
             {turnos.map((turno:any)=>(
                 <Turnos
                     turno={turno}
+                    setConfirmado={setConfirmado}
                 />
             ))}
           </IonContent>
