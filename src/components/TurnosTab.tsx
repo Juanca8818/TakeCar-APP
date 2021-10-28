@@ -11,7 +11,7 @@ import {
     IonContent,
     IonIcon,
     IonItem,
-    IonMenuButton, IonImg, IonText
+    IonMenuButton, IonImg, IonText, IonSpinner, IonLoading
 } from '@ionic/react';
 import React, { useState,useEffect,useContext } from 'react';
 import { pin, time, wifi, wine, warning, walk } from 'ionicons/icons';
@@ -42,6 +42,14 @@ const TurnosTab: React.FC = () => {
                     <IonText  style={{alignContent:'center'}} >Acá podrás ver los turnos que la concesionaria reservó para vos</IonText>
                 </IonCard>
                 <IonContent>
+                    <IonSpinner name="bubbles"/>
+                    <IonLoading
+                        cssClass='my-custom-class'
+                        isOpen={true}
+
+                        message={'Please wait...'}
+
+                    />
                     <TurnosDescripcion/>
                 </IonContent>
             </IonContent>
