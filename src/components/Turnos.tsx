@@ -10,10 +10,34 @@ import {
     IonCard,
     IonIcon,
     IonItem,
+    IonChip,
+    IonBackdrop,
     IonDatetime, IonToolbar, IonHeader, IonContent, IonTitle, IonMenuButton, IonRadioGroup, IonRadio
 } from '@ionic/react';
 import React, { useState, useEffect, useContext } from 'react';
-import { caretForwardCircle,heart,share,trash,calendar,checkmark, checkbox,alert,close,lockClosed,closeCircle, balloon, pin, browsers, bulbOutline, balloonOutline, sparkles, walk, atCircleSharp, helpCircleSharp } from 'ionicons/icons';
+import {
+    caretForwardCircle,
+    heart,
+    share,
+    trash,
+    calendar,
+    checkmark,
+    checkbox,
+    alert,
+    close,
+    lockClosed,
+    closeCircle,
+    balloon,
+    pin,
+    browsers,
+    bulbOutline,
+    balloonOutline,
+    sparkles,
+    walk,
+    atCircleSharp,
+    helpCircleSharp,
+    carSport, hammer, document, person, call, time, timeOutline, checkmarkCircleOutline
+} from 'ionicons/icons';
 import { IonGrid, IonRow, IonCol, } from '@ionic/react';
 import ImagenRoma from "../images/coliseo.jpg"
 import ImagenLondres from "../images/london.jpg"
@@ -22,7 +46,7 @@ import ImagenLisboa from "../images/lisboa.jpg"
 //import ImagenPCana from "../images/puntacana.jpg"
 import ImagenPCana from "../images/Conce.jpg"
 
-
+import { location } from 'ionicons/icons';
 
 import ImgDetalles from "../images/departures.svg"
 import ImgPin from "../images/pin.svg"
@@ -86,44 +110,52 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
     }
 
     // @ts-ignore
+    // @ts-ignore
     return (
 
         <>
             <IonCard>
 
-                <IonModal isOpen={showModal} cssClass='my-custom-class'>
-                    <IonLabel  color="primary">{capitalize(props.turno.estado)}</IonLabel>
-                    <IonList>
-                        <IonItem  >
-                            <IonLabel className="vuelos">{props.turno.ubicacion}</IonLabel>
-                            <IonIcon icon={ImgPin} slot="start" />
-                        </IonItem>
+                <IonModal isOpen={showModal} cssClass={'modal'}>
+                    <div className={'modalTurno'}>
+                        <IonChip   color={props.turno.estado === "confirmado"?"success":"warning"}>
+                            <IonIcon size={'default'} icon={props.turno.estado === "confirmado"?checkmarkCircleOutline:timeOutline}/>
+                            <IonLabel  >{capitalize(props.turno.estado)}</IonLabel>
+                    </IonChip>
 
-                        <IonItem  >
-                            <IonLabel className="vuelos">{props.turno.hora}</IonLabel>
-                            <IonIcon icon={ImgCar} slot="start" />
-                        </IonItem>
+                        <IonCard className='card'>
+                            <IonList style={{backgroundColor:'#F8F7F2'}}>
+                                <IonItem lines='none' className='item'>
+                                    <IonLabel className="vuelos">{props.turno.ubicacion}</IonLabel>
+                                    <IonIcon icon={location} color='primary' slot="start" />
+                                </IonItem>
 
-                        <IonItem  >
-                            <IonLabel className="turnos">{props.turno.descripcion} </IonLabel>
-                            <IonIcon icon={ImgTool} slot="start" />
-                        </IonItem>
+                                <IonItem lines='none' >
+                                    <IonLabel className="vuelos">{props.turno.hora}</IonLabel>
+                                    <IonIcon icon={carSport} slot="start" />
+                                </IonItem>
 
-
-                        <IonItem >
-                            <IonLabel className="turnos">{"Esteban, Quito"} </IonLabel>
-                            <IonIcon icon={ImgPerson} slot="start" />
-                        </IonItem>
-
-                        <IonItem >
-                            <IonLabel> {props.turno.avion}</IonLabel>
-                            <IonIcon icon={ImgWa} slot="start" />
-                        </IonItem>
+                                <IonItem  lines='none'>
+                                    <IonLabel className="turnos">{props.turno.descripcion} </IonLabel>
+                                    <IonIcon icon={document} color='primary' slot="start" />
+                                </IonItem>
 
 
+                                <IonItem lines='none'>
+                                    <IonLabel className="turnos">{"Esteban, Quito"} </IonLabel>
+                                    <IonIcon icon={person} slot="start" />
+                                </IonItem>
 
-                    </IonList>
-                    <IonButton onClick={() => setShowModal(false)}>Cerrar</IonButton>
+                                <IonItem lines='none'>
+                                    <IonLabel>1139048342</IonLabel>
+                                    <IonIcon icon={call} color='primary' slot="start" />
+                                </IonItem>
+                            </IonList>
+                        </IonCard>
+
+                        <IonButton  onClick={() => setShowModal(false)}>Cerrar</IonButton>
+                    </div>
+
                 </IonModal>
 
                 <div>
@@ -139,13 +171,11 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
 
 
                 {props.turno.estado === 'pendiente'?
-                    <div  text-align="center"onClick={() =>
+                    <div className="confirmar"  onClick={() =>
                         present({
-                            cssClass: 'my-css',
+
                             header: '¡Importante!',
                             message: '¿Confirma el turno?',
-
-
                             buttons: [
                                 { text: 'Aceptar fecha', handler: (d) => {confirmarHandler(true)} },
                                 { text: 'Nueva fecha', handler: (d) => {setShowModalNuevaFecha(true)}},
@@ -153,18 +183,13 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
                             // onDidDismiss: (e) => {setShowActionSheet(false)},
                         })
                     } >
-                        <IonItem className="centrada2"><IonIcon icon={ImgConfirmar} size="medium" color="success" />
 
-                        <IonText >Confirmar <IonIcon icon={ImgSeparador} size="medium"  /> Rechazar</IonText> <IonIcon icon={ImgRechazar} size="medium" color="danger" />
+                            <IonButton  size='default' fill='outline'>Confirmar</IonButton>
 
-                    </IonItem>
 
                     </div>
 
                     :null}
-
-
-
             </IonCard>
             <IonModal cssClass='nuevaFecha' isOpen={showModalNuevaFecha}>
 

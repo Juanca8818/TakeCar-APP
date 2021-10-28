@@ -11,28 +11,49 @@
 
 
        }
-       .centrada2{
 
-        margin-left: 7px;
-
-
-       }
-       .action-sheet-title.sc-ion-action-sheet-md {
+.action-sheet-title.sc-ion-action-sheet-md {
                         color: #BB4255;
                         height: fit-content;
                         text-align:center;
                         background-color:ghostwhite;
-
-
-
-
-
-
-
-
-
       }
 .nuevaFecha{
     height: 90%;
     justify-content: center;
+}
+
+.confirmar{
+    margin-left: 30%;
+}
+
+
+.modalTurno{
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+
+
+}
+.card{
+    background-color: #F8F7F2;
+    padding: 10px;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.modal{
+    padding: 80px 20px 80px 20px;
+    --border-radius: 20px;
+}
+
+.item{
+    --background:'#F8F7F2';
 }
