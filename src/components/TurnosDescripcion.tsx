@@ -6,7 +6,8 @@ import './TurnosDescripcion.css';
 import UsuarioContext from '../context/UsuarioContext';
 import {confirmarTurno, fetchTurnos} from "../firebaseConfig";
 
-const TurnosDescripcion: React.FC =() => {
+// @ts-ignore
+const TurnosDescripcion=(props) => {
 
 
   const userIngresado = useContext(UsuarioContext);
@@ -24,7 +25,11 @@ const TurnosDescripcion: React.FC =() => {
 
   const obtener= async ()=>{
     const averga =JSON.parse(localStorage.getItem('vuel') || '{}');
+    // @ts-ignore
+    props.loadingHandler(true);
     const t = await fetchTurnos();
+    // @ts-ignore
+    props.loadingHandler(false);
     // @ts-ignore
     setTurnos(t);
     // descarga.collection(averga).onSnapshot(manejarSnapshot)

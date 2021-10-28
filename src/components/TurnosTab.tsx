@@ -26,7 +26,14 @@ import "../components/TurnosTab.css";
 import './Tab2.css';
 const TurnosTab: React.FC = () => {
   const [showAlert2, setShowAlert2] = useState(false);
-  return (
+  const [loading, setLoading] = useState(false)
+  const handleLoading = (status: boolean) =>{
+      setLoading(status);
+  }
+
+    // @ts-ignore
+    // @ts-ignore
+    return (
     <IonPage>
             <IonHeader>
                 <IonToolbar className="tab">
@@ -42,31 +49,14 @@ const TurnosTab: React.FC = () => {
                     <IonText  style={{alignContent:'center'}} >Acá podrás ver los turnos que la concesionaria reservó para vos</IonText>
                 </IonCard>
                 <IonContent>
-                    <IonSpinner name="bubbles"/>
                     <IonLoading
                         cssClass='my-custom-class'
-                        isOpen={true}
-
-                        message={'Please wait...'}
-
+                        isOpen={loading}
+                        message={'Por favor espere...'}
                     />
-                    <TurnosDescripcion/>
+                    <TurnosDescripcion loadingHandler={handleLoading}/>
                 </IonContent>
             </IonContent>
-
-
-            <IonAlert
-                isOpen={showAlert2}
-                onDidDismiss={() => setShowAlert2(false)}
-                cssClass='my-custom-class'
-                header={'Nueva alerta'}
-                //subHeader={'prueba'}
-                message={'Hay un nuevo turno asignado'}
-                buttons={['Aceptar']}
-            />
-
-
-
   </IonPage>
 
 
