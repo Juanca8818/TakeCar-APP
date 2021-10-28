@@ -1,4 +1,17 @@
-import {IonActionSheet,useIonAlert , IonAlert,  IonText,  IonModal, IonList, IonButton, IonLabel, IonCard, IonIcon, IonItem } from '@ionic/react';
+import {
+    IonActionSheet,
+    useIonAlert,
+    IonAlert,
+    IonText,
+    IonModal,
+    IonList,
+    IonButton,
+    IonLabel,
+    IonCard,
+    IonIcon,
+    IonItem,
+    IonDatetime, IonToolbar, IonHeader, IonContent, IonTitle, IonMenuButton, IonRadioGroup, IonRadio
+} from '@ionic/react';
 import React, { useState, useEffect, useContext } from 'react';
 import { caretForwardCircle,heart,share,trash,calendar,checkmark, checkbox,alert,close,lockClosed,closeCircle, balloon, pin, browsers, bulbOutline, balloonOutline, sparkles, walk, atCircleSharp, helpCircleSharp } from 'ionicons/icons';
 import { IonGrid, IonRow, IonCol, } from '@ionic/react';
@@ -50,9 +63,13 @@ const Turnos: React.FC<{ turno: any }> = props => {
     const [confirmar2, guardarConfirmar2] = useState(false);
     const [elModal, guardarElModal] = useState(true);
     const [present] = useIonAlert();
+    const [showModalNuevaFecha, setShowModalNuevaFecha] = useState(false)
 
     console.log(props.turno)
 
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
 
         <>
@@ -114,8 +131,8 @@ const Turnos: React.FC<{ turno: any }> = props => {
 
 
                             buttons: [
-                                { text: 'Confirmar', handler: (d) => {setShowActionSheet(false);guardarConfirmar(true)} },
-                                { text: 'Rechazar', handler: (d) => {setShowActionSheet(false);guardarConfirmar2(true);guardarElModal(false)} },
+                                { text: 'Aceptar fecha', handler: (d) => {setShowActionSheet(false);guardarConfirmar(true)} },
+                                { text: 'Nueva fecha', handler: (d) => { setShowModalNuevaFecha(true)}},
                             ],
                             onDidDismiss: (e) => {setShowActionSheet(false)},
                         })
@@ -132,11 +149,33 @@ const Turnos: React.FC<{ turno: any }> = props => {
 
 
             </IonCard>
+            <IonModal cssClass='nuevaFecha' isOpen={showModalNuevaFecha}>
 
+                    <IonHeader translucent>
+                        <IonToolbar className="tab">
+                           <IonTitle slot='start'>Turnos disponibles</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                <IonContent>
+                    <IonList>
+                        <IonRadioGroup>
+                            {/*{turnos.map((turno:any)=>(*/}
+                            <IonItem button onClick={()=> false}>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>hola</IonLabel>
+                                <IonRadio value={'hola'}></IonRadio>
+
+                            </IonItem>
+                            {/*}))}*/}
+                        </IonRadioGroup>
+
+                    </IonList>
+                </IonContent>
+                <IonButton onClick={() => setShowModalNuevaFecha(false)}>Confirmar</IonButton>
+
+            </IonModal>
             <IonAlert
                 isOpen={showAlert2}
 
-                cssClass='my-custom-class'
                 header={'¡Alerta!'}
 
 

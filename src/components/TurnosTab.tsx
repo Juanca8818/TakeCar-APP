@@ -11,7 +11,7 @@ import {
     IonContent,
     IonIcon,
     IonItem,
-    IonMenuButton, IonImg
+    IonMenuButton, IonImg, IonText
 } from '@ionic/react';
 import React, { useState,useEffect,useContext } from 'react';
 import { pin, time, wifi, wine, warning, walk } from 'ionicons/icons';
@@ -28,22 +28,24 @@ const TurnosTab: React.FC = () => {
   const [showAlert2, setShowAlert2] = useState(false);
   return (
     <IonPage>
-
             <IonHeader>
                 <IonToolbar className="tab">
                     <IonMenuButton className="tab" color="primary" slot="start" />
                     <IonTitle className="tab">Turnos</IonTitle>
                 </IonToolbar>
             </IonHeader>
-
-            <IonContent>
+            <IonContent style={{alignContent:'center'}} scrollY={false}>
                 <IonCardHeader>
                     <IonImg src={ImagenTurno}/>
                 </IonCardHeader>
+                <IonCard style={{height:'auto',padding:'5px'}}>
+                    <IonText  style={{alignContent:'center'}} >Acá podrás ver los turnos que la concesionaria reservó para vos</IonText>
+                </IonCard>
+                <IonContent>
+                    <TurnosDescripcion/>
+                </IonContent>
             </IonContent>
-            <IonContent>
-                <TurnosDescripcion/>
-            </IonContent>
+
 
             <IonAlert
                 isOpen={showAlert2}
