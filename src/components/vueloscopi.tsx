@@ -18,8 +18,7 @@ const Tab2: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <br></br>
-          <IonTitle><b>Tus vuelos</b></IonTitle>
+          <IonTitle>Tus vuelos</IonTitle>
         </IonToolbar>
       </IonHeader>
 

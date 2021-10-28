@@ -1,4 +1,17 @@
-import {IonActionSheet,useIonAlert , IonAlert,  IonText,  IonModal, IonList, IonButton, IonLabel, IonCard, IonIcon, IonItem } from '@ionic/react';
+import {
+    IonActionSheet,
+    useIonAlert,
+    IonAlert,
+    IonText,
+    IonModal,
+    IonList,
+    IonButton,
+    IonLabel,
+    IonCard,
+    IonIcon,
+    IonItem,
+    IonDatetime, IonToolbar, IonHeader
+} from '@ionic/react';
 import React, { useState, useEffect, useContext } from 'react';
 import { caretForwardCircle,heart,share,trash,calendar,checkmark, checkbox,alert,close,lockClosed,closeCircle, balloon, pin, browsers, bulbOutline, balloonOutline, sparkles, walk, atCircleSharp, helpCircleSharp } from 'ionicons/icons';
 import { IonGrid, IonRow, IonCol, } from '@ionic/react';
@@ -51,8 +64,12 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
     const [confirmar2, guardarConfirmar2] = useState(false);
     const [elModal, guardarElModal] = useState(true);
     const [present] = useIonAlert();
+    const [showModalNuevaFecha, setShowModalNuevaFecha] = useState(false)
 
 
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
 
         <>
@@ -145,7 +162,9 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
                 <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="primary" slot="end" expand="full">
                     {props.vuelo.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
 
-                    <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>{confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}{confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
+                    <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>
+                    {confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}
+                    {confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
 
 
                 </IonButton></div>
@@ -160,8 +179,8 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
 
 
                             buttons: [
-                                { text: 'Confirmar', handler: (d) => {setShowActionSheet(false);guardarConfirmar(true)} },
-                                { text: 'Rechazar', handler: (d) => {setShowActionSheet(false);guardarConfirmar2(true);guardarElModal(false)} },
+                                { text: 'Aceptar fecha', handler: (d) => {setShowActionSheet(false);guardarConfirmar(true)} },
+                                { text: 'Nueva fecha', handler: (d) => { setShowModalNuevaFecha(true)}},
                             ],
                             onDidDismiss: (e) => {setShowActionSheet(false)},
                         })
@@ -178,7 +197,19 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
 
 
             </IonCard>
+            <IonModal cssClass='nuevaFecha' isOpen={showModalNuevaFecha}>
+               <IonToolbar >
+                    <IonHeader>Nueva fecha</IonHeader>
+                    <IonIcon slot='end'/>
+                </IonToolbar>
+                <IonCard className={''}>
+                    <IonDatetime placeholder="Seleccionar fecha" min='2021'/>
+                    <IonDatetime placeholder="Seleccionar horario" displayFormat="H:mm"/>
+                    {/*value={selectedDate} onIonChange={e => setSelectedDate(e.detail.value!)}*/}
+                </IonCard>
+                <IonButton onClick={() => setShowModalNuevaFecha(false)}>Confirmar</IonButton>
 
+            </IonModal>
             <IonAlert
                 isOpen={showAlert2}
 

@@ -68,7 +68,6 @@ const App: React.FC = () => (
             <IonItem routerLink="/" ><IonIcon color="medium" slot="start" icon={logOut}></IonIcon><IonLabel>Cerrar Sesion</IonLabel></IonItem>
           </IonMenuToggle>
           <img className="imagenHeader2"src={ImagenFly}/>
-
         </IonList>
       </IonContent>
     </IonMenu>
@@ -80,7 +79,6 @@ const App: React.FC = () => (
         <Route path="/tab6" component={Tab6} exact/>
         <Route path="/home" component={Home} exact/>
         <Route path="/construccion" component={Construccion} exact/>
-
         <Redirect to="/"/>
       </IonRouterOutlet>
 s

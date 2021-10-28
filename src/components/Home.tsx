@@ -21,23 +21,22 @@ import './Home.css';
 const slideOpts = {
     initialSlide: 1,
     autoplay: true,
-    speed: 400
+    speed: 400,
+    height: '100px'
 };
 export const Home: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <IonPage>
-            <IonContent fullscreen  scroll-y="false">
-                <IonHeader>
-                    <IonToolbar>
-                        <IonMenuButton className="tab" color="primary" slot="start" />
-                        <IonTitle className="tab">Inicio</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+        <IonPage >
+            <IonHeader >
+            <IonToolbar>
+                <IonMenuButton className="tab" color="primary" slot="start" />
+                <IonTitle className="tab">Inicio</IonTitle>
+            </IonToolbar>
+            </IonHeader>
+            <IonContent scrollY={false}>
                 <IonContent fullscreen>
-
-
                     <IonSlides pager={true} options={slideOpts} >
                         <IonSlide>
                             <img src={autoPerfil} />
@@ -47,56 +46,29 @@ export const Home: React.FC = () => {
                         </IonSlide>
                     </IonSlides>
 
-
-                    <IonRow>
-                        <IonCol>Marca:Etios</IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>Modelo: XPS</IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>Número de chasis: EER4567</IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>Número de chasis: MAE6784</IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>Año: 2018</IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>Patente: AC180CD</IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>KM: 15000</IonCol>
-                    </IonRow>
-
-
-
-
-                    {/* <IonCard className={'card'}>
-              <IonCardHeader>
-                  <IonCardHeader>
-                      <IonCardTitle className={"title"}>Turnos próximos</IonCardTitle>
-                  </IonCardHeader>
-              </IonCardHeader>
-              <IonCardContent className={'card'}>
-                  <IonItem button onClick={() => { }}>
-                      <IonLabel >
-                          Button Item
-                      </IonLabel>
-                  </IonItem>
-                  <IonItem button onClick={() => { }}>
-                      <IonLabel>
-                          Button Item
-                      </IonLabel>
-                  </IonItem>
-                  <IonItem button onClick={() => { }}>
-                      <IonLabel>
-                          Button Item
-                      </IonLabel>
-                  </IonItem>
-              </IonCardContent>
-          </IonCard> */}
+                    <IonCard className={'card'}>
+                        <IonRow>
+                            <IonCol><strong>Marca:</strong>Etios</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol><strong>Modelo:</strong> XPS</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol><strong>Número de chasis:</strong> EER4567</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol><strong>Número de chasis:</strong> MAE6784</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol><strong>Año:</strong> 2018</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol><strong>Patente:</strong> AC180CD</IonCol>
+                        </IonRow>
+                        <IonRow>
+                            <IonCol><strong>KM:</strong> 15000</IonCol>
+                        </IonRow>
+                    </IonCard>
                     <IonGrid>
                         <IonRow>
                             <IonCol><IonButton size="small" style={{ width: '100%'}}>Documentos</IonButton></IonCol>
@@ -105,13 +77,15 @@ export const Home: React.FC = () => {
                         </IonRow>
                     </IonGrid>
                 </IonContent>
+
                 <IonContent>
                     <IonModal cssClass='my-custom-class' isOpen={showModal}>
                         <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton>
                     </IonModal>
-
                 </IonContent>
             </IonContent>
+
+
         </IonPage>
     );
 };

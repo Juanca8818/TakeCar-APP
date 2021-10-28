@@ -65,8 +65,6 @@ const Menu: React.FC = () => {
         <Route exact path="/turnos">
           <TurnosTab />
         </Route>
-
-
         <Route exact path="/alertas">
           <Alertas />
         </Route>
