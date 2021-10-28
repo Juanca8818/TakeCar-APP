@@ -10,7 +10,7 @@ import {
     IonCard,
     IonIcon,
     IonItem,
-    IonDatetime, IonToolbar, IonHeader
+    IonDatetime, IonToolbar, IonHeader, IonContent, IonTitle, IonMenuButton, IonRadioGroup, IonRadio
 } from '@ionic/react';
 import React, { useState, useEffect, useContext } from 'react';
 import { caretForwardCircle,heart,share,trash,calendar,checkmark, checkbox,alert,close,lockClosed,closeCircle, balloon, pin, browsers, bulbOutline, balloonOutline, sparkles, walk, atCircleSharp, helpCircleSharp } from 'ionicons/icons';
@@ -198,22 +198,32 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
 
             </IonCard>
             <IonModal cssClass='nuevaFecha' isOpen={showModalNuevaFecha}>
-               <IonToolbar >
-                    <IonHeader>Nueva fecha</IonHeader>
-                    <IonIcon slot='end'/>
-                </IonToolbar>
-                <IonCard className={''}>
-                    <IonDatetime placeholder="Seleccionar fecha" min='2021'/>
-                    <IonDatetime placeholder="Seleccionar horario" displayFormat="H:mm"/>
-                    {/*value={selectedDate} onIonChange={e => setSelectedDate(e.detail.value!)}*/}
-                </IonCard>
+
+                    <IonHeader translucent>
+                        <IonToolbar className="tab">
+                           <IonTitle slot='start'>Turnos disponibles</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                <IonContent>
+                    <IonList>
+                        <IonRadioGroup>
+                            {/*{turnos.map((turno:any)=>(*/}
+                            <IonItem button onClick={()=> false}>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>hola</IonLabel>
+                                <IonRadio value={'hola'}></IonRadio>
+
+                            </IonItem>
+                            {/*}))}*/}
+                        </IonRadioGroup>
+
+                    </IonList>
+                </IonContent>
                 <IonButton onClick={() => setShowModalNuevaFecha(false)}>Confirmar</IonButton>
 
             </IonModal>
             <IonAlert
                 isOpen={showAlert2}
 
-                cssClass='my-custom-class'
                 header={'¡Alerta!'}
 
 
