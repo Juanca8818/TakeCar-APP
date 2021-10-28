@@ -15,7 +15,6 @@ import {
 } from '@ionic/react';
 import React, { useState,useEffect,useContext } from 'react';
 import { pin, time, wifi, wine, warning, walk } from 'ionicons/icons';
-import {descarga} from '../firebaseConfig';
 
 import UsuarioContext from '../context/UsuarioContext';
 import TurnosDescripcion from "./TurnosDescripcion"

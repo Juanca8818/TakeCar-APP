@@ -74,8 +74,8 @@ const App: React.FC = () => (
     </IonMenu>
 
       <IonRouterOutlet id="scheduleAppM1">
-        <Route path="/" component={Login} exact/>
-        <Route path="/menu" component={Menu} exact/>
+        {/*<Route path="/" component={Login} exact/>*/}
+        <Route path="/" component={Menu} exact/>
         <Route path="/miperfil" component={MiPerfil} exact/>
         <Route path="/tab6" component={Tab6} exact/>
         <Route path="/home" component={Home} exact/>

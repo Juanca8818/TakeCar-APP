@@ -32,13 +32,12 @@ import ImgSeparador from "../images/separacion.svg"
 
 
 import './Turnos.css';
-import { descarga } from '../firebaseConfig';
 
 import UsuarioContext from '../context/UsuarioContext';
 import Tripulantes  from './tripulantes';
 
 
-const Turnos: React.FC<{ vuelo: any }> = props => {
+const Turnos: React.FC<{ turno: any }> = props => {
 
 //cambiar el valor a true para que salga el aviso//
     const [showAlert2, setShowAlert2] = useState(false);
@@ -52,79 +51,39 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
     const [elModal, guardarElModal] = useState(true);
     const [present] = useIonAlert();
 
+    console.log(props.turno)
 
     return (
 
         <>
-            <IonCard
-
-            >
+            <IonCard>
 
                 <IonModal isOpen={showModal} cssClass='my-custom-class'>
-
-                    <IonCard>
-                    </IonCard>
-                    {props.vuelo.destino == 'FCO (RMA)' ? <img src={ImagenRoma} /> : null}
-                    {props.vuelo.destino == 'LHR (UK)' ? <img src={ImagenLondres} /> : null}
-                    {props.vuelo.destino == 'JFK (NY)' ? <img src={ImagenNY} /> : null}
-                    {props.vuelo.destino == 'LIS (PT)' ? <img src={ImagenLisboa} /> : null}
-                    {/* {props.vuelo.destino == 'PUJ (PU)' ? <img src={ImagenPCana} /> : null} */}
-                    {props.vuelo.destino == 'PUJ (PU)' ? <img src={ImagenPCana} /> : null}
                     <IonList>
-
-                        <IonGrid text-align="center">
-                            {/* <IonCol>
-
-                  <IonLabel><b>Origen </b> {props.vuelo.origen}</IonLabel>
-
-                </IonCol>
-                <IonCol className="centrada">
-
-                  <IonList>
-
-                        <IonIcon  icon={ImgDetalles3} slot="start" />
-                  </IonList>
-                  <IonLabel>{props.vuelo.escala}</IonLabel>
-                </IonCol>
-                <IonCol>
-                        <IonLabel><b>Destino</b> {props.vuelo.destino} </IonLabel>
-                </IonCol> */}
-
-                        </IonGrid>
-
                         <IonItem  >
-                            <IonLabel className="vuelos">{props.vuelo.numeroVuelo}</IonLabel>
+                            <IonLabel className="vuelos">{props.turno.ubicacion}</IonLabel>
                             <IonIcon icon={ImgPin} slot="start" />
                         </IonItem>
 
                         <IonItem  >
-                            <IonLabel className="vuelos">{props.vuelo.partida}</IonLabel>
+                            <IonLabel className="vuelos">{props.turno.hora}</IonLabel>
                             <IonIcon icon={ImgCar} slot="start" />
                         </IonItem>
 
                         <IonItem  >
-                            <IonLabel className="vuelos">{props.vuelo.llegada}</IonLabel>
-                            <IonIcon icon={ImgCar2} slot="start" />
-                        </IonItem>
-
-                        <IonItem  >
-                            <IonLabel className="vuelos">{props.vuelo.capacidad} </IonLabel>
+                            <IonLabel className="turnos">{props.turno.descripcion} </IonLabel>
                             <IonIcon icon={ImgTool} slot="start" />
                         </IonItem>
 
 
                         <IonItem >
-                            <IonLabel className="vuelos">{props.vuelo.tiempo} </IonLabel>
+                            <IonLabel className="turnos">{"Esteban, Quito"} </IonLabel>
                             <IonIcon icon={ImgPerson} slot="start" />
                         </IonItem>
 
                         <IonItem >
-                            <IonLabel> {props.vuelo.avion}</IonLabel>
+                            <IonLabel> {props.turno.avion}</IonLabel>
                             <IonIcon icon={ImgWa} slot="start" />
-                        </IonItem>
-                        <IonItem >
-                            {/* Para hacer el historial de turnos         */}
-                            {/* <Tripulantes/>             */}
                         </IonItem>
 
 
@@ -133,22 +92,17 @@ const Turnos: React.FC<{ vuelo: any }> = props => {
                     <IonButton onClick={() => setShowModal(false)}>Cerrar</IonButton>
                 </IonModal>
 
+                <div>
+                    <IonButton disabled={false} onClick={() => setShowModal(elModal)} color="primary" slot="end" expand="full">
+                    {props.turno.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
 
-                {/* <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="danger" slot="end" expand="full">
-        {props.vuelo.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
+                    <IonLabel><b>{props.turno.fecha}</b>
+                    </IonLabel>
 
-          <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>{confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}{confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
-
-
-        </IonButton></div> */}
-
-                <div><IonButton disabled={false} onClick={() => setShowModal(elModal)} color="primary" slot="end" expand="full">
-                    {props.vuelo.guardia?<IonIcon icon={calendar} slot="start" />:<IonIcon icon={calendar} slot="start" />}
-
-                    <IonLabel><b>{props.vuelo.dia} de {props.vuelo.mes}</b></IonLabel>{confirmar2?<div ><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}{confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success" /> </IonText> </div>:null}
-
-
-                </IonButton></div>
+                        {confirmar2?<div><IonIcon icon={closeCircle} size="large" color="danger" /></div>:null}
+                        {confirmar?<div ><IonText color="success"><IonIcon icon={checkbox} size="large" color="success"/></IonText> </div>:null}
+                    </IonButton>
+                </div>
 
 
                 {showActionSheet?

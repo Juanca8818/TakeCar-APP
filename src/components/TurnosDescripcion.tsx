@@ -2,9 +2,9 @@ import { IonBadge,IonChip,IonModal,IonList,IonCardHeader, IonCardTitle, IonCardS
 import React, { useState,useEffect,useContext } from 'react';
 import Turnos from './Turnos'
 import './TurnosDescripcion.css';
-import {descarga} from '../firebaseConfig';
 
 import UsuarioContext from '../context/UsuarioContext';
+import {fetchTurnos} from "../firebaseConfig";
 
 const TurnosDescripcion: React.FC =() => {
 
@@ -13,20 +13,21 @@ const TurnosDescripcion: React.FC =() => {
   const {user}= userIngresado;
 
   const [showModal, setShowModal] = useState(false);
-
-  const [vuelos, guardarVuelos]:Array<any> = useState(['']);
+  const [turnos, setTurnos] = useState([]);
 
   useEffect(()=>{
 
     obtener();
 
 
-  },[user,vuelos])
+  },[])
 
-  const obtener=()=>{
+  const obtener= async ()=>{
     const averga =JSON.parse(localStorage.getItem('vuel') || '{}');
-
-    descarga.collection(averga).onSnapshot(manejarSnapshot)
+    const t = await fetchTurnos();
+    // @ts-ignore
+    setTurnos(t);
+    // descarga.collection(averga).onSnapshot(manejarSnapshot)
   }
 
   function manejarSnapshot(snapshot:any){
@@ -37,16 +38,16 @@ const TurnosDescripcion: React.FC =() => {
       }
     });
 
-    guardarVuelos(vuelosTotales.filter((vu:any)=>vu.id!=='infoPerfil'))
+    // guardarVuelos(vuelosTotales.filter((vu:any)=>vu.id!=='infoPerfil'))
 
   }
 
   return (
       <IonPage>
           <IonContent>
-            {vuelos.map((vuelo:any)=>(
+            {turnos.map((turno:any)=>(
                 <Turnos
-                    vuelo={vuelo}
+                    turno={turno}
                 />
             ))}
           </IonContent>

@@ -2,7 +2,7 @@ import { IonLabel, IonPage, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent
 import React, { useState, useEffect, useContext } from 'react';
 import './MiPerfil.css';
 import ImagenPerfil from "../images/perfil.jpg"
-import { descarga } from '../firebaseConfig';
+// import { descarga } from '../firebaseConfig';
 import UsuarioContext from '../context/UsuarioContext';
 import Imagenlogout from "../images/logout.svg"
 
@@ -30,7 +30,7 @@ const MiPerfil: React.FC = () => {
   const obtener = () => {
     const averga = JSON.parse(localStorage.getItem('vuel') || '{}');
 
-    descarga.collection(averga).onSnapshot(manejarSnapshot)
+    // descarga.collection(averga).onSnapshot(manejarSnapshot)
   }
 
   function manejarSnapshot(snapshot: any) {

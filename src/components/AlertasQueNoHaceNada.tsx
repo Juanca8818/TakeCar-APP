@@ -2,7 +2,6 @@ import { IonCardHeader, IonText, IonCard, IonIcon, IonLabel, IonPage, IonCheckbo
 import React, { useState,useEffect,useContext } from 'react';
 
 import ImagenPerfil from "../images/perfil.jpg"
-import {descarga} from '../firebaseConfig';
 import UsuarioContext from '../context/UsuarioContext';
 import { calendar, pin, time, warning, walk, shieldHalf,  checkmarkDone, checkmarkDoneCircleOutline, checkbox, checkboxOutline} from 'ionicons/icons';
 
@@ -30,7 +29,6 @@ const AlertasQueNoHaceNada: React.FC = () => {
   const obtener=()=>{
     const averga =JSON.parse(localStorage.getItem('vuel') || '{}');
 
-    descarga.collection(averga).onSnapshot(manejarSnapshot)
   }
 
 function manejarSnapshot(snapshot:any){

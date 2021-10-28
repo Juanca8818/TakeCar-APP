@@ -3,7 +3,6 @@ import React,{useState,useEffect,useContext} from 'react';
 import {Link} from 'react-router-dom'
 import ImagenTakeCar from "../images/takecar.png"
 import './Login.css';
-import {loginUser} from '../firebaseConfig';
 import { toast } from '../components/toast';
 import UsuarioContext from '../context/UsuarioContext'
 
@@ -33,7 +32,7 @@ const Login: React.FC=()=>{
     }
   async function login(){
 
-      const res= await loginUser(email, password)
+      const res= true
       if (!res){
         toast('Credenciales incorrectas')
 
