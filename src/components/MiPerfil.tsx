@@ -81,12 +81,12 @@ const MiPerfil: React.FC = () => {
 
             <IonItem  >
 
-              <IonLabel><b>Nombre: Pablo Roberto</b> </IonLabel>
+              <IonLabel><b>Nombre: Benito</b> </IonLabel>
             </IonItem>
 
             <IonItem  >
 
-              <IonLabel><b>Apellido: Vanegas </b></IonLabel>
+              <IonLabel><b>Apellido: Gomez </b></IonLabel>
             </IonItem>
 
             <IonItem  >
@@ -102,12 +102,11 @@ const MiPerfil: React.FC = () => {
 
             <IonItem  >
 
-              <IonLabel><b>Celular: 11-2345-2345</b> </IonLabel>
+              <IonLabel><b>Celular: 1123452345</b> </IonLabel>
             </IonItem>
 
             <IonItem  >
-
-              <IonLabel><b>Email: prvanega@gmail.com</b> </IonLabel>
+              <IonLabel><b>Email: benito.gomez@gmail.com</b> </IonLabel>
             </IonItem>
 
 
