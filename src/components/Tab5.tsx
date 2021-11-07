@@ -1,7 +1,9 @@
 import React from 'react';
 import { IonList, IonTitle, IonAvatar,  IonItemSliding, IonItem, IonLabel, IonItemOptions, IonItemOption, IonIcon, IonNote, IonPage } from '@ionic/react';
 import { checkmarkSharp} from 'ionicons/icons';
-import ImgInfo from "../images/info.svg"
+//import ImgInfo from "../images/info.svg"
+import ImgInfo from "../images/info.png"
+
 
 import './Tab5.css';
 
@@ -38,7 +40,7 @@ const Tab5: React.FC = () => {
     </IonItemOptions>
 
     <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nueva guardia asignada</b></IonLabel>
+    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nuevo turno asingado</b></IonLabel>
     </IonItem>
 
     <IonItemOptions side="end">
@@ -56,7 +58,7 @@ const Tab5: React.FC = () => {
     </IonItemOptions>
 
     <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Chequeá tus vuelos</b></IonLabel>
+    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Chequeá tu VTV</b></IonLabel>
     </IonItem>
 
     <IonItemOptions side="end">
@@ -74,7 +76,7 @@ const Tab5: React.FC = () => {
     </IonItemOptions>
 
     <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Revisa el estado del tránsito</b></IonLabel>
+    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Revisa el estado del seguro</b></IonLabel>
     </IonItem>
 
     <IonItemOptions side="end">

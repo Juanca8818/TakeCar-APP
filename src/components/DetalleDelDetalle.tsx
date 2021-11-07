@@ -136,7 +136,7 @@ const DetalleDelDetalle: React.FC<{ vuelo: any }> = props => {
             </IonItem>
             <IonItem >     
               {/* Para hacer el historial de turnos         */}
-              {/* <Tripulantes/>             */}
+              <Tripulantes/>            
             </IonItem>      
                
 
