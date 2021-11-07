@@ -54,3 +54,17 @@ p b {
 .tab{
   padding-top: 20px;
 }
+
+.editarAuto{
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%; padding: 80px 20px 80px 20px;
+  --border-radius: 20px;
+}
+.modal{
+
+}

@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import IconoHome from "../images/home3.png"
+
 import React, { useState, useEffect, useContext } from 'react';
 
 import {
@@ -67,11 +67,7 @@ const Menu: React.FC = () => {
         <Route exact path="/alertas">
           <Alertas />
         </Route>
-
-
-
-        <Route exact path="/">
-          {/* <Redirect to="/tab1" /> */}
+        <Route exact path="/menu">
           <Redirect to="/home" />
 
         </Route>
@@ -79,20 +75,14 @@ const Menu: React.FC = () => {
 
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
-
         <IonTabButton tab="home" href="/home">
         <IonIcon icon={home} />
           <IonLabel>Inicio</IonLabel>
         </IonTabButton>
-
         <IonTabButton tab="turnos" href="/turnos">
           <IonIcon icon={calendar} />
           <IonLabel>Turnos</IonLabel>
         </IonTabButton>
-
-
-
-
         <IonTabButton tab="alertas" href="/alertas">
           <IonIcon icon={notifications} />
           <IonLabel>Alertas</IonLabel>

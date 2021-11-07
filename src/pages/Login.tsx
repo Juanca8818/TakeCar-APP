@@ -54,7 +54,6 @@ const Login: React.FC=()=>{
         <IonHeader>
           <IonToolbar>
             <img src={ImagenTakeCar}/>
-
           </IonToolbar>
         </IonHeader>
         <IonContent>

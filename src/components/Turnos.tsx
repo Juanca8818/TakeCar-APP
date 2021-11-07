@@ -11,60 +11,17 @@ import {
     IonIcon,
     IonItem,
     IonChip,
-    IonBackdrop,
-    IonDatetime, IonToolbar, IonHeader, IonContent, IonTitle, IonMenuButton, IonRadioGroup, IonRadio
+    IonToolbar, IonHeader, IonContent, IonTitle,IonRadioGroup, IonRadio
 } from '@ionic/react';
 import React, { useState, useEffect, useContext } from 'react';
 import {
-    caretForwardCircle,
-    heart,
-    share,
-    trash,
     calendar,
-    checkmark,
     checkbox,
-    alert,
-    close,
-    lockClosed,
-    closeCircle,
-    balloon,
-    pin,
-    browsers,
-    bulbOutline,
-    balloonOutline,
-    sparkles,
-    walk,
-    atCircleSharp,
-    helpCircleSharp,
-    carSport, hammer, document, person, call, time, timeOutline, checkmarkCircleOutline
+    carSport, document, person, call, timeOutline, checkmarkCircleOutline
 } from 'ionicons/icons';
-import { IonGrid, IonRow, IonCol, } from '@ionic/react';
-import ImagenRoma from "../images/coliseo.jpg"
-import ImagenLondres from "../images/london.jpg"
-import ImagenNY from "../images/ny.jpg"
-import ImagenLisboa from "../images/lisboa.jpg"
-//import ImagenPCana from "../images/puntacana.jpg"
-import ImagenPCana from "../images/Conce.jpg"
+
 
 import { location } from 'ionicons/icons';
-
-import ImgDetalles from "../images/departures.svg"
-import ImgPin from "../images/pin.svg"
-import ImgCar from "../images/car3.svg"
-import ImgCar2 from "../images/car4.svg"
-import ImgPerson from "../images/person.svg"
-import ImgTool from "../images/tool.svg"
-import ImgWa from "../images/what.svg"
-
-import ImgDetalles1 from "../images/arrival.svg"
-import ImgDetalles2 from "../images/boarding.svg"
-import ImgDetalles3 from "../images/location.svg"
-import ImgDetalles4 from "../images/capacidad.svg"
-import ImgDetalles5 from "../images/flight-time.svg"
-import ImgDetalles6 from "../images/airplane.svg"
-import ImgConfirmar from "../images/ok.svg"
-import ImgRechazar from "../images/no.svg"
-import ImgSeparador from "../images/separacion.svg"
 
 
 
@@ -73,6 +30,7 @@ import './Turnos.css';
 import UsuarioContext from '../context/UsuarioContext';
 import Tripulantes  from './tripulantes';
 import {capitalize} from "../utils";
+import {IonBackButtonInner} from "@ionic/react/dist/types/components/inner-proxies";
 
 
 const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
@@ -121,8 +79,7 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
                         <IonChip   color={props.turno.estado === "confirmado"?"success":"warning"}>
                             <IonIcon size={'default'} icon={props.turno.estado === "confirmado"?checkmarkCircleOutline:timeOutline}/>
                             <IonLabel  >{capitalize(props.turno.estado)}</IonLabel>
-                    </IonChip>
-
+                        </IonChip>
                         <IonCard className='card'>
                             <IonList style={{backgroundColor:'#F8F7F2'}}>
                                 <IonItem lines='none' className='item'>
@@ -195,18 +152,55 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
 
                     <IonHeader translucent>
                         <IonToolbar className="tab">
-                           <IonTitle slot='start'>Turnos disponibles</IonTitle>
+
+                             <IonTitle className="tab" slot={'end'}>Turnos disponibles</IonTitle>
+
+
                         </IonToolbar>
                     </IonHeader>
                 <IonContent>
                     <IonList>
                         <IonRadioGroup>
                             {/*{turnos.map((turno:any)=>(*/}
-                            <IonItem button onClick={()=> false}>
-                                <IonIcon slot="start" icon={calendar}/> <IonLabel>hola</IonLabel>
-                                <IonRadio value={'hola'}></IonRadio>
-
+                            <IonItem>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                                <IonRadio/>
                             </IonItem>
+                            <IonItem>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                                <IonRadio/>
+                            </IonItem>
+                            <IonItem>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                                <IonRadio/>
+                            </IonItem><IonItem>
+                            <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                            <IonRadio/>
+                        </IonItem><IonItem>
+                            <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                            <IonRadio/>
+                        </IonItem>
+                            <IonItem>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                                <IonRadio/>
+                            </IonItem>
+                            <IonItem>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                                <IonRadio/>
+                            </IonItem><IonItem>
+                            <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                            <IonRadio/>
+                        </IonItem>
+                            <IonItem>
+                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
+                                <IonRadio/>
+                            </IonItem>
+
+
+
+
+
+
                             {/*}))}*/}
                         </IonRadioGroup>
 

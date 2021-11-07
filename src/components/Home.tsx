@@ -11,7 +11,18 @@ import {
     IonMenuButton,
     IonAvatar,
     IonList,
-    IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonItem, IonLabel, IonGrid, IonRow, IonCol, IonModal, IonInput
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonItem,
+    IonLabel,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonModal,
+    IonInput,
+    IonText
 } from '@ionic/react';
 import autoPerfil from "../images/etios.jpg"
 import autoBackPerfil from "../images/etiosback.jpg"
@@ -39,13 +50,12 @@ export const Home: React.FC = () => {
                 <IonContent fullscreen>
                     <IonSlides pager={true} options={slideOpts} >
                         <IonSlide>
-                            <img src={autoPerfil} />
+                            <img src={autoPerfil} alt={'auto'}/>
                         </IonSlide>
                         <IonSlide>
-                            <img src={autoBackPerfil} />
+                            <img src={autoBackPerfil}  alt={'auto'}/>
                         </IonSlide>
                     </IonSlides>
-
                     <IonCard className={'card'}>
                         <IonRow>
                             <IonCol><strong>Marca:</strong>Etios</IonCol>
@@ -72,23 +82,59 @@ export const Home: React.FC = () => {
                     <IonGrid>
                         <IonRow>
                             <IonCol><IonButton size="small" style={{ width: '100%'}}>Documentos</IonButton></IonCol>
-
                             <IonCol><IonButton fill='outline' size="small" style={{ width: '100%' }} onClick={() => setShowModal(true)}>Editar</IonButton></IonCol>
                         </IonRow>
                     </IonGrid>
                 </IonContent>
-
-                <IonContent>
-                    <IonModal cssClass='my-custom-class' isOpen={showModal}>
-                        <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton>
+                    <IonModal cssClass='editarAuto' isOpen={showModal}>
+                        <IonCard className={'card'}>
+                            <IonRow>
+                                <IonCol>
+                                    <IonLabel>Marca</IonLabel>
+                                    <IonInput placeholder="Marca" mode={'ios'}/>
+                                </IonCol>
+                            </IonRow>
+                            <IonRow>
+                                <IonCol>
+                                    <IonLabel>Modelo</IonLabel>
+                                    <IonInput placeholder="Modelo" mode={'ios'}/>
+                                </IonCol>
+                            </IonRow>
+                            <IonRow>
+                                <IonCol>
+                                    <IonLabel>Número de chasis</IonLabel>
+                                    <IonInput placeholder="Número de chasis" mode={'ios'}/>
+                                </IonCol>
+                            </IonRow>
+                            <IonRow>
+                                <IonCol>
+                                    <IonLabel>Número de chasis</IonLabel>
+                                    <IonInput placeholder="Número de chasis" mode={'ios'}/>
+                                </IonCol>
+                            </IonRow>
+                            <IonRow>
+                                <IonCol>
+                                    <IonLabel>Año</IonLabel>
+                                    <IonInput placeholder="Año" mode={'ios'}/>
+                                </IonCol>
+                            </IonRow>
+                            <IonRow>
+                                <IonCol>
+                                    <IonLabel>Patente</IonLabel>
+                                    <IonInput placeholder="Marca" mode={'ios'}/>
+                                </IonCol>
+                            </IonRow>
+                            <IonRow>
+                                <IonCol>
+                                    <IonLabel>Kilómetros</IonLabel>
+                                    <IonInput placeholder="Marca" mode={'ios'}/>
+                                </IonCol>
+                            </IonRow>
+                        </IonCard>
+                        <IonButton  size='small' style={{width:'80%',alignSelf:'center'}} onClick={() => setShowModal(false)}>Cerrar</IonButton>
                     </IonModal>
-                </IonContent>
             </IonContent>
-
-
         </IonPage>
     );
 };
-
-
 export default Home;

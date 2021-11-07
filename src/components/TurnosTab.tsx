@@ -14,11 +14,11 @@ import {
     IonMenuButton, IonImg, IonText, IonSpinner, IonLoading
 } from '@ionic/react';
 import React, { useState,useEffect,useContext } from 'react';
-import { pin, time, wifi, wine, warning, walk } from 'ionicons/icons';
+import { pin, time, wifi, wine, warning, walk, refresh } from 'ionicons/icons';
 
 import UsuarioContext from '../context/UsuarioContext';
 import TurnosDescripcion from "./TurnosDescripcion"
-import ImagenPerfil from "../images/logo2.jpg"
+
 import ImagenTurno from "../images/turno.jpg"
 import "../components/TurnosTab.css";
 
@@ -56,6 +56,7 @@ const TurnosTab: React.FC = () => {
                     />
                     <TurnosDescripcion loadingHandler={handleLoading}/>
                 </IonContent>
+                <IonIcon icon={refresh}/>
             </IonContent>
   </IonPage>
 
