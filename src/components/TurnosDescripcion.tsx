@@ -24,7 +24,10 @@ const TurnosDescripcion: React.FC =() => {
 
   const obtener= async ()=>{
     const averga =JSON.parse(localStorage.getItem('vuel') || '{}');
+    
     const t = await fetchTurnos();
+    // @ts-ignore
+    
     // @ts-ignore
     setTurnos(t);
     // descarga.collection(averga).onSnapshot(manejarSnapshot)
