@@ -72,7 +72,7 @@ const Menu: React.FC = () => {
 
         <Route exact path="/">
           {/* <Redirect to="/tab1" /> */}
-          <Redirect to="/home" />
+          <Redirect to="/alertas" />
 
         </Route>
 

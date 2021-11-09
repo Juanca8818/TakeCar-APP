@@ -24,6 +24,7 @@ import "../components/TurnosTab.css";
 
 
 import './Tab2.css';
+
 const TurnosTab: React.FC = () => {
   const [showAlert2, setShowAlert2] = useState(false);
   const [loading, setLoading] = useState(false)

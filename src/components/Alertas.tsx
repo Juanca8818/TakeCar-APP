@@ -14,14 +14,15 @@ import {
     IonText, IonContent, IonToolbar, IonMenuButton, IonHeader, IonCard, IonCardHeader, IonCardContent, IonImg
 } from '@ionic/react';
 import {build, checkmarkSharp} from 'ionicons/icons';
-import ImgInfo from "../images/info.svg"
+//import ImgInfo from "../images/info.svg"
+import ImgInfo from "../images/info.png"
 import takecar from '../images/takecar.png';
 import './tripulantes.css';
 import './Alertas.css';
 const Alertas: React.FC = () => {
     return (
 <IonPage>
-  {/*
+
 <IonList>
 
 
@@ -45,7 +46,7 @@ const Alertas: React.FC = () => {
     </IonItemOptions>
 
     <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nueva guardia asignada</b></IonLabel>
+    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nuevo turno asignado</b></IonLabel>
     </IonItem>
 
     <IonItemOptions side="end">
@@ -63,7 +64,7 @@ const Alertas: React.FC = () => {
     </IonItemOptions>
 
     <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Chequeá tus vuelos</b></IonLabel>
+    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Chequeá tu VTV</b></IonLabel>
     </IonItem>
 
     <IonItemOptions side="end">
@@ -81,7 +82,7 @@ const Alertas: React.FC = () => {
     </IonItemOptions>
 
     <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Revisa el estado del tránsito</b></IonLabel>
+    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Revisa la vigencia del seguro</b></IonLabel>
     </IonItem>
 
     <IonItemOptions side="end">
@@ -112,8 +113,10 @@ const Alertas: React.FC = () => {
 
 
 
-</IonList>*/}
-    <IonContent fullscreen>
+</IonList>
+
+{/* Esto se habia generado de forma temporal */}
+    {/* <IonContent fullscreen>
         <IonHeader>
             <IonToolbar>
                 <IonMenuButton color="primary"slot="start"/>
@@ -141,7 +144,7 @@ const Alertas: React.FC = () => {
 
 
 
-
+ */}
 
 
 

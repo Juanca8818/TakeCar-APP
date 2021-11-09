@@ -5,23 +5,25 @@ import { IonButton, IonItem, IonList, IonIcon, IonAvatar, IonLabel, IonContent, 
 import ImgPiloto from "../images/piloto.svg"
 import ImgComandante from "../images/comandante.svg"
 import ImgTripulante from "../images/tripulantes.svg"
-import './tripulantes.css';
+import ImgCheck from "../images/check.svg"
+import ImgNoCheck from "../images/nocheck.svg"
+import './Tab5.css';
 
 const Body: React.FC<{
 
-
+ 
 
   count: number;
   onDismiss: () => void;
   onIncrement: () => void;
 }> = ({ count, onDismiss, onIncrement }) => (
-
+  
   <div>
     <IonHeader translucent>
       <IonToolbar>
         <br></br>
         <IonButtons slot="end">
-          <IonButton color="tertiary" strong  onClick={() => onDismiss()}>Cerrar</IonButton>
+          <IonButton color="danger" strong  onClick={() => onDismiss()}>Cerrar</IonButton>
         </IonButtons>
       </IonToolbar>
     </IonHeader>
@@ -30,11 +32,11 @@ const Body: React.FC<{
       <IonList>
         <IonItem>
            <IonAvatar slot="start">
-                <img src={ImgPiloto} />
+                <img src={ImgCheck} />
             </IonAvatar>
           <IonLabel>
-            <h2><b>Eneko Jerez</b></h2>
-            <p>Piloto</p>
+            <h2><b>Cambio de aceite y filtro</b></h2>
+            <p><b>Realizado</b></p>
           </IonLabel>
         </IonItem>
       </IonList>
@@ -42,23 +44,23 @@ const Body: React.FC<{
       <IonList>
         <IonItem>
             <IonAvatar slot="start">
-              <img src={ImgPiloto} />
+              <img src={ImgCheck} />
             </IonAvatar>
           <IonLabel>
-            <h2><b>Fabio Sole</b></h2>
-            <p>Copiloto</p>
+            <h2><b>Cambio de correas</b></h2>
+            <p><b>Realizado</b></p>
           </IonLabel>
         </IonItem>
       </IonList>
 
       <IonList>
         <IonItem>
-            <IonAvatar slot="start">
-               <img src={ImgComandante} />
+            <IonAvatar slot="start">          
+               <img src={ImgNoCheck} />
             </IonAvatar>
           <IonLabel>
-            <h2><b>Estrella Costas</b></h2>
-            <p>Comandate</p>
+            <h2><b>Chequeo de rutina</b></h2>
+            <p><b>Rechazado</b></p>
           </IonLabel>
         </IonItem>
       </IonList>
@@ -66,16 +68,16 @@ const Body: React.FC<{
       <IonList>
         <IonItem>
               <IonAvatar slot="start">
-              <img src={ImgTripulante} />
+              <img src={ImgCheck} />
               </IonAvatar>
           <IonLabel>
-            <h2><b>Ane Hidalgo</b></h2>
-            <p>Tripulante</p>
+            <h2><b>Limpieza de radiador</b></h2>
+            <p><b>Realizado</b></p>
           </IonLabel>
         </IonItem>
       </IonList>
 
-      <IonList>
+      {/* <IonList>
         <IonItem>
             <IonAvatar slot="start">
               <img src={ImgTripulante} />
@@ -86,7 +88,6 @@ const Body: React.FC<{
           </IonLabel>
         </IonItem>
       </IonList>
-
       <IonList>
         <IonItem>
         <IonAvatar slot="start">
@@ -97,7 +98,7 @@ const Body: React.FC<{
             <p>Tripulante</p>
           </IonLabel>
         </IonItem>
-      </IonList>
+      </IonList> */}
 
     </IonContent>
 
@@ -114,7 +115,7 @@ const ModalExample: React.FC = () => {
   const handleDismiss = () => {
     dismiss();
   };
-
+ 
   /**
    * First parameter is the component to show, second is the props to pass
    */
@@ -125,22 +126,22 @@ const ModalExample: React.FC = () => {
   });
 
   return (
-
+    
       <IonContent>
-
-        <IonButton className="centrada" color="medium"
-
+      
+        <IonButton className="centrada" color="small" 
+          
           shape="round" fill="outline"
           onClick={() => {
             present({
               cssClass: 'my-class',
             });
           }}
-        >
-        Ver más tripulantes
-        </IonButton>
+        >          
+        Ver historial
+        </IonButton>       
       </IonContent>
-
+    
   );
 };
 
