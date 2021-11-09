@@ -50,11 +50,12 @@ const TurnosTab: React.FC = () => {
                     <IonText  style={{alignContent:'center'}} >Acá podrás ver los turnos que la concesionaria reservó para vos</IonText>
                 </IonCard>
                 <IonContent>
-                    <IonLoading
-                        cssClass='my-custom-class'
-                        isOpen={loading}
-                        message={'Por favor espere...'}
-                    />
+                    {/*TODO Para poder mostrar el loading, hay que descomentar esta parte*/}
+                    {/*<IonLoading*/}
+                    {/*    cssClass='my-custom-class'*/}
+                    {/*    isOpen={loading}*/}
+                    {/*    message={'Por favor espere...'}*/}
+                    {/*/>*/}
                     <TurnosDescripcion loadingHandler={handleLoading}/>
                 </IonContent>
             </IonContent>
