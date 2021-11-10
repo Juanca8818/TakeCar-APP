@@ -28,7 +28,7 @@ import { location } from 'ionicons/icons';
 import './Turnos.css';
 
 import UsuarioContext from '../context/UsuarioContext';
-import Tripulantes  from './tripulantes';
+
 import {capitalize} from "../utils";
 import {IonBackButtonInner} from "@ionic/react/dist/types/components/inner-proxies";
 
