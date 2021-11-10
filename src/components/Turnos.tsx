@@ -71,7 +71,7 @@ import ImgSeparador from "../images/separacion.svg"
 import './Turnos.css';
 
 import UsuarioContext from '../context/UsuarioContext';
-import Tripulantes  from './tripulantes';
+
 import {capitalize} from "../utils";
 
 

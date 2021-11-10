@@ -21,6 +21,7 @@ import TurnosDescripcion from "./TurnosDescripcion"
 import ImagenPerfil from "../images/logo2.jpg"
 import ImagenTurno from "../images/turno.jpg"
 import "../components/TurnosTab.css";
+import Tripulantes  from './tripulantes';
 
 
 import './Tab2.css';
@@ -46,10 +47,15 @@ const TurnosTab: React.FC = () => {
                 <IonCardHeader>
                     <IonImg src={ImagenTurno}/>
                 </IonCardHeader>
-                <IonCard style={{height:'auto',padding:'5px'}}>
+                <IonItem >     
+                            <Tripulantes/>            
+                    </IonItem>
+                {/* <IonCard style={{height:'auto',padding:'5px'}}>
                     <IonText  style={{alignContent:'center'}} >Acá podrás ver los turnos que la concesionaria reservó para vos</IonText>
-                </IonCard>
+                    
+                </IonCard> */}
                 <IonContent>
+                
                     {/*TODO Para poder mostrar el loading, hay que descomentar esta parte*/}
                     {/*<IonLoading*/}
                     {/*    cssClass='my-custom-class'*/}
@@ -57,8 +63,11 @@ const TurnosTab: React.FC = () => {
                     {/*    message={'Por favor espere...'}*/}
                     {/*/>*/}
                     <TurnosDescripcion loadingHandler={handleLoading}/>
+                    
                 </IonContent>
+                
             </IonContent>
+                
   </IonPage>
 
 

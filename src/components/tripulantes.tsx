@@ -7,7 +7,7 @@ import ImgComandante from "../images/comandante.svg"
 import ImgTripulante from "../images/tripulantes.svg"
 import ImgCheck from "../images/check.svg"
 import ImgNoCheck from "../images/nocheck.svg"
-import './Tab5.css';
+//import './Tab5.css';
 
 const Body: React.FC<{
 
