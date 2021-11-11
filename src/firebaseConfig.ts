@@ -42,10 +42,11 @@ export const fetchTurnos = async () =>{
     return turnos
 }
 
-const filtrarTurnos = async (turnoFiltrado: string, turno:any) => {
+const isTurno = async (turnoFiltrado: string, turno:any) => {
     const turnoSnapshot = await getDoc(turno);
     if (turnoSnapshot.exists()){
-        return turnoSnapshot.id !== turnoFiltrado
+        console.log(`turno found ${turnoSnapshot.id}, turno filtrado ${turnoFiltrado}`)
+        return turnoSnapshot.id === turnoFiltrado
     }
 }
 
@@ -55,14 +56,18 @@ export const rechazarTurno = async (turnoId: string) => {
     const userQuery = query(usersRef, where("username","==", "7777777"));
     const userSnapshot = await getDocs(userQuery);
     const userRef = doc(db,'usuarios', userSnapshot.docs[0].id)
-    await updateDoc(turnoRef, {cliente:null, estado:"disponible"})
+    await updateDoc(turnoRef, {estado:"rechazado"})
 
     let turnos = userSnapshot.docs[0].data().turnos
-    await Promise.all(turnos.filter(async (elem: any) => {
-        return await filtrarTurnos(turnoId, elem)
-    }))
-
-    await updateDoc(userRef, {turnos: turnos})
+    let turnos_aux: any[] = []
+    // @ts-ignore
+    await Promise.all(turnos.map(async turno => {
+        if (!await isTurno(turnoId, turno)){
+            turnos_aux = [turno, ...turnos_aux]
+        }
+    }));
+    console.log(`turnos aux: ${turnos_aux}`)
+    await updateDoc(userRef, {turnos: turnos_aux})
 }
 
 export const confirmarTurno = async (turnoId: string) => {

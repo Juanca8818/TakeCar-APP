@@ -34,7 +34,6 @@ const TurnosTab: React.FC = () => {
   }
 
     // @ts-ignore
-    // @ts-ignore
     return (
     <IonPage>
             <IonHeader>
@@ -57,11 +56,11 @@ const TurnosTab: React.FC = () => {
                 <IonContent>
 
                     {/*TODO Para poder mostrar el loading, hay que descomentar esta parte*/}
-                    {/*<IonLoading*/}
-                    {/*    cssClass='my-custom-class'*/}
-                    {/*    isOpen={loading}*/}
-                    {/*    message={'Por favor espere...'}*/}
-                    {/*/>*/}
+                    <IonLoading
+                        cssClass='my-custom-class'
+                        isOpen={loading}
+                        message={'Por favor espere...'}
+                    />
                     <TurnosDescripcion loadingHandler={handleLoading}/>
 
                 </IonContent>

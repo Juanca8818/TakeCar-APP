@@ -33,7 +33,7 @@ import {capitalize} from "../utils";
 import {IonBackButtonInner} from "@ionic/react/dist/types/components/inner-proxies";
 
 
-const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
+const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
 
 //cambiar el valor a true para que salga el aviso//
     const [showAlert2, setShowAlert2] = useState(false);
@@ -50,9 +50,8 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
 
     console.log(props.turno)
 
-    const confirmarHandler = (esConfirmado: boolean) =>{
-        props.setConfirmado(props.turno.id, esConfirmado).then()
-
+    const alertHandler = (newState: string) =>{
+        props.setNewStatus(props.turno.id, newState).then()
     }
 
     const estadoTurno = () => {
@@ -134,8 +133,8 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
                             header: '¡Importante!',
                             message: '¿Confirma el turno?',
                             buttons: [
-                                { text: 'Aceptar fecha', handler: (d) => {confirmarHandler(true)} },
-                                { text: 'Rechazar'}
+                                { text: 'Aceptar fecha', handler: (d) => {alertHandler('confirmado')} },
+                                { text: 'Rechazar', handler: (d) => {alertHandler('rechazado')}}
                             ],
                             // onDidDismiss: (e) => {setShowActionSheet(false)},
                         })

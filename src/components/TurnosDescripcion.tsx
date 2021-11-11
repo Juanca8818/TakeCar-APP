@@ -4,7 +4,7 @@ import Turnos from './Turnos'
 import './TurnosDescripcion.css';
 
 import UsuarioContext from '../context/UsuarioContext';
-import {confirmarTurno, fetchTurnos} from "../firebaseConfig";
+import {confirmarTurno, fetchTurnos, rechazarTurno} from "../firebaseConfig";
 // @ts-ignore
 const TurnosDescripcion=(props) => {
 
@@ -45,32 +45,44 @@ const TurnosDescripcion=(props) => {
     // guardarVuelos(vuelosTotales.filter((vu:any)=>vu.id!=='infoPerfil'))
 
   }
-
-  const setConfirmado = async (turnoId: string, esConfirmado: boolean) =>{
+  const setNewStatus = async (turnoId: string, newStatus: string) =>{
+    props.loadingHandler(true);
     let aux: any[] | ((prevState: never[]) => never[]) = [];
     await Promise.all(turnos.map(async turno => {
       let turnoAux = turno;
       // @ts-ignore
       if (turno.id === turnoId){
         console.log('turno encontrado')
-        if (esConfirmado) {
+        if (newStatus === 'confirmado') {
           await confirmarTurno(turnoId)
           console.log('confirmado')
           // @ts-ignore
           turnoAux.estado = 'confirmado';
         }
+        else if (newStatus === 'rechazado'){
+          await rechazarTurno(turnoId)
+          console.log('rechazado')
+          // @ts-ignore
+          turnoAux.estado = 'rechazado';
+
+        }
         else {
           // @ts-ignore
           turnoAux.estado = 'disponible';
-
         }
       }
       // @ts-ignore
-      aux = [turnoAux, ...aux]
+      if (turnoAux.estado !== 'rechazado'){
+        // @ts-ignore
+        aux = [turnoAux, ...aux]
+      }
     }))
+    props.loadingHandler(false);
     // @ts-ignore
     setTurnos(aux);
+
   }
+
 
   return (
       <IonPage>
@@ -78,7 +90,7 @@ const TurnosDescripcion=(props) => {
             {turnos.map((turno:any)=>(
                 <Turnos
                     turno={turno}
-                    setConfirmado={setConfirmado}
+                    setNewStatus={setNewStatus}
                 />
             ))}
           </IonContent>
