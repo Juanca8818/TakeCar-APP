@@ -8,7 +8,7 @@ import {
     IonItemOptions,
     IonItemOption,
     IonIcon,
-    IonPage, IonToolbar, IonMenuButton, IonContent, IonHeader, IonButton, IonCard, IonGrid, IonRow, IonCol,
+    IonPage, IonToolbar, IonMenuButton, IonContent, IonHeader, IonButton, IonCard, IonGrid, IonRow, IonCol, IonModal,
 } from '@ionic/react';
 import {archive, build, checkmarkSharp, home} from 'ionicons/icons';
 //import ImgInfo from "../images/info.svg"
@@ -17,6 +17,15 @@ import takecar from '../images/takecar.png';
 import './tripulantes.css';
 import './Alertas.css';
 const Alertas: React.FC = () => {
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
 <IonPage>
     <IonHeader>
@@ -98,41 +107,6 @@ const Alertas: React.FC = () => {
         </IonGrid>
 
     </IonContent>
-
-
-{/* Esto se habia generado de forma temporal */}
-    {/* <IonContent fullscreen>
-        <IonHeader>
-            <IonToolbar>
-                <IonMenuButton color="primary"slot="start"/>
-                <IonTitle>Notificaciones</IonTitle>
-            </IonToolbar>
-        </IonHeader>
-        <IonContent  slot="fixed" >
-            <IonCard className={'container'}>
-                <IonCardHeader>
-                    <IonIcon className={'icon'} size="large" icon={build}/>
-                    <IonImg src={takecar}></IonImg>
-                </IonCardHeader>
-                <IonCardContent className={'icon'}>
-                    Funcionalidad en construcción
-                </IonCardContent>
-
-            </IonCard>
-
-        </IonContent>
-    </IonContent>
-
-
-
-
-
-
-
- */}
-
-
-
 </IonPage>
 );
 }
