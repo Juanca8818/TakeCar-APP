@@ -11,13 +11,13 @@ import ImgNoCheck from "../images/nocheck.svg"
 
 const Body: React.FC<{
 
- 
+
 
   count: number;
   onDismiss: () => void;
   onIncrement: () => void;
 }> = ({ count, onDismiss, onIncrement }) => (
-  
+
   <div>
     <IonHeader translucent>
       <IonToolbar>
@@ -55,7 +55,7 @@ const Body: React.FC<{
 
       <IonList>
         <IonItem>
-            <IonAvatar slot="start">          
+            <IonAvatar slot="start">
                <img src={ImgNoCheck} />
             </IonAvatar>
           <IonLabel>
@@ -115,7 +115,7 @@ const ModalExample: React.FC = () => {
   const handleDismiss = () => {
     dismiss();
   };
- 
+
   /**
    * First parameter is the component to show, second is the props to pass
    */
@@ -126,22 +126,22 @@ const ModalExample: React.FC = () => {
   });
 
   return (
-    
+
       <IonContent>
-      
-        <IonButton className="centrada" color="small" 
-          
+
+        <IonButton className={'historial'} color="small"
+
           shape="round" fill="outline"
           onClick={() => {
             present({
               cssClass: 'my-class',
             });
           }}
-        >          
+        >
         Ver historial
-        </IonButton>       
+        </IonButton>
       </IonContent>
-    
+
   );
 };
 

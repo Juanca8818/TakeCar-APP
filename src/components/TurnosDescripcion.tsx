@@ -5,7 +5,6 @@ import './TurnosDescripcion.css';
 
 import UsuarioContext from '../context/UsuarioContext';
 import {confirmarTurno, fetchTurnos} from "../firebaseConfig";
-
 // @ts-ignore
 const TurnosDescripcion=(props) => {
 

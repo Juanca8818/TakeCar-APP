@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-
+import IconoHome from "../images/home3.png"
 import React, { useState, useEffect, useContext } from 'react';
 
 import {
@@ -53,49 +53,57 @@ import '../theme/variables.css';
 
 
 const Menu: React.FC = () => {
- return(
-  <IonApp className="todo">
-  <IonReactRouter>
-    <IonTabs>
-      <IonRouterOutlet id="scheduleAppM1">
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/turnos">
-          <TurnosTab />
-        </Route>
-        <Route exact path="/alertas">
-          <Alertas />
-        </Route>
-        <Route exact path="/">
-          {/* <Redirect to="/tab1" /> */}
-          <Redirect to="/alertas" />
+  return(
+      <IonApp className="todo">
+        <IonReactRouter>
+          <IonTabs>
+            <IonRouterOutlet id="scheduleAppM1">
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              <Route exact path="/turnos">
+                <TurnosTab />
+              </Route>
+              <Route exact path="/alertas">
+                <Alertas />
+              </Route>
 
 
-        </Route>
+
+              <Route exact path="/">
+                {/* <Redirect to="/tab1" /> */}
+                <Redirect to="/alertas" />
+
+              </Route>
 
 
-      </IonRouterOutlet>
-      <IonTabBar slot="bottom">
-        <IonTabButton tab="home" href="/home">
-        <IonIcon icon={home} />
-          <IonLabel>Inicio</IonLabel>
-        </IonTabButton>
-        <IonTabButton tab="turnos" href="/turnos">
-          <IonIcon icon={calendar} />
-          <IonLabel>Turnos</IonLabel>
-        </IonTabButton>
-        <IonTabButton tab="alertas" href="/alertas">
-          <IonIcon icon={notifications} />
-          <IonLabel>Alertas</IonLabel>
-        </IonTabButton>
+            </IonRouterOutlet>
+            <IonTabBar slot="bottom">
 
-      </IonTabBar>
-    </IonTabs>
-  </IonReactRouter>
-</IonApp>
+              <IonTabButton tab="home" href="/home">
+                <IonIcon icon={home} />
+                <IonLabel>Inicio</IonLabel>
+              </IonTabButton>
+
+              <IonTabButton tab="turnos" href="/turnos">
+                <IonIcon icon={calendar} />
+                <IonLabel>Turnos</IonLabel>
+              </IonTabButton>
 
 
-)};
+
+
+              <IonTabButton tab="alertas" href="/alertas">
+                <IonIcon icon={notifications} />
+                <IonLabel>Alertas</IonLabel>
+              </IonTabButton>
+
+            </IonTabBar>
+          </IonTabs>
+        </IonReactRouter>
+      </IonApp>
+
+
+  )};
 
 export default Menu;

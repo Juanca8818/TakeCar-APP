@@ -2,18 +2,15 @@ import React from 'react';
 import {
     IonList,
     IonTitle,
-    IonAvatar,
     IonItemSliding,
     IonItem,
     IonLabel,
     IonItemOptions,
     IonItemOption,
     IonIcon,
-    IonNote,
-    IonPage,
-    IonText, IonContent, IonToolbar, IonMenuButton, IonHeader, IonCard, IonCardHeader, IonCardContent, IonImg
+    IonPage, IonToolbar, IonMenuButton, IonContent, IonHeader, IonButton, IonCard, IonGrid, IonRow, IonCol,
 } from '@ionic/react';
-import {build, checkmarkSharp} from 'ionicons/icons';
+import {archive, build, checkmarkSharp, home} from 'ionicons/icons';
 //import ImgInfo from "../images/info.svg"
 import ImgInfo from "../images/info.png"
 import takecar from '../images/takecar.png';
@@ -22,98 +19,86 @@ import './Alertas.css';
 const Alertas: React.FC = () => {
     return (
 <IonPage>
+    <IonHeader>
 
-<IonList>
+    <IonToolbar>
+        <IonMenuButton className="tab" color="primary" slot="start" />
+        <IonTitle className="tab">Alertas</IonTitle>
+    </IonToolbar>
+    </IonHeader>
 
 
-      <br></br>
-     <IonItem>
-      <IonTitle><b>Alertas</b></IonTitle>
-    </IonItem>
-
-  <br></br>
-
-  <img className="centrada"src={ImgInfo} alt="centered image" width="100" height="100" />
-
-  <br></br>
-  <br></br>
-
-  <IonItemSliding>
-    <IonItemOptions side="start">
-      <IonItemOption color="danger" expandable>
-        Borrar
-      </IonItemOption>
-    </IonItemOptions>
-
-    <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nuevo turno asignado</b></IonLabel>
-    </IonItem>
-
-    <IonItemOptions side="end">
-      <IonItemOption color="tertiary" expandable>
-        Archivar
-      </IonItemOption>
-    </IonItemOptions>
-  </IonItemSliding>
-
-  <IonItemSliding>
-    <IonItemOptions side="start">
-      <IonItemOption color="danger" expandable>
-      Borrar
-      </IonItemOption>
-    </IonItemOptions>
-
-    <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Chequeá tu VTV</b></IonLabel>
-    </IonItem>
-
-    <IonItemOptions side="end">
-      <IonItemOption color="tertiary" expandable>
-      Archivar
-      </IonItemOption>
-    </IonItemOptions>
-  </IonItemSliding>
-
-  <IonItemSliding>
-    <IonItemOptions side="start">
-      <IonItemOption color="danger" expandable>
-      Borrar
-      </IonItemOption>
-    </IonItemOptions>
-
-    <IonItem>
-    <IonIcon icon={checkmarkSharp}/><IonLabel><b>Revisa la vigencia del seguro</b></IonLabel>
-    </IonItem>
-
-    <IonItemOptions side="end">
-      <IonItemOption color="tertiary" expandable>
-      Archivar
-      </IonItemOption>
-    </IonItemOptions>
-  </IonItemSliding>
+    <IonContent>
+        <img className="centrada"  src={ImgInfo} alt="centered image"  width="100" height="100" />
 
 
 
-  <br></br>
+        <IonItemSliding>
+            <IonItemOptions side="start">
+                <IonItemOption color="danger" expandable>
+                    Borrar
+                </IonItemOption>
+            </IonItemOptions>
 
-  <br></br>
+            <IonItem>
+                <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nuevo turno asignado</b></IonLabel>
+            </IonItem>
 
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
+            <IonItemOptions side="end">
+                <IonItemOption color="tertiary" expandable>
+                    Archivar
+                </IonItemOption>
+            </IonItemOptions>
+        </IonItemSliding>
 
+        <IonItemSliding>
+            <IonItemOptions side="start">
+                <IonItemOption color="danger" expandable>
+                    Borrar
+                </IonItemOption>
+            </IonItemOptions>
 
+            <IonItem>
+                <IonIcon icon={checkmarkSharp}/><IonLabel><b>Chequeá tu VTV</b></IonLabel>
+            </IonItem>
 
+            <IonItemOptions side="end">
+                <IonItemOption color="tertiary" expandable>
+                    Archivar
+                </IonItemOption>
+            </IonItemOptions>
+        </IonItemSliding>
 
+        <IonItemSliding>
+            <IonItemOptions side="start">
+                <IonItemOption color="danger" expandable>
+                    Borrar
+                </IonItemOption>
+            </IonItemOptions>
+            <IonItem>
+                <IonIcon icon={checkmarkSharp}/><IonLabel><b>Revisa la vigencia del seguro</b></IonLabel>
+            </IonItem>
+            <IonItemOptions side="end">
+                <IonItemOption color="tertiary" expandable>
+                    Archivar
+                </IonItemOption>
+            </IonItemOptions>
+        </IonItemSliding>
+        <IonGrid>
+            <IonRow>
+                <IonCol >
 
+                    <IonButton style={{marginTop:'80px'}} size={'small'} fill={'outline'}>
+                        <IonIcon icon={archive}/>
+                    </IonButton>
+                </IonCol>
 
+            </IonRow>
 
+        </IonGrid>
 
-</IonList>
+    </IonContent>
+
 
 {/* Esto se habia generado de forma temporal */}
     {/* <IonContent fullscreen>

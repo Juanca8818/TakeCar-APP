@@ -135,7 +135,7 @@ const Turnos: React.FC<{ turno: any, setConfirmado: any }> = props => {
                             message: '¿Confirma el turno?',
                             buttons: [
                                 { text: 'Aceptar fecha', handler: (d) => {confirmarHandler(true)} },
-                                { text: 'Nueva fecha', handler: (d) => {setShowModalNuevaFecha(true)}},
+                                { text: 'Rechazar'}
                             ],
                             // onDidDismiss: (e) => {setShowActionSheet(false)},
                         })
