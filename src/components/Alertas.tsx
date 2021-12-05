@@ -43,7 +43,7 @@ const Alertas: React.FC = () => {
 
 
         <IonItemSliding>
-            <IonItemOptions side="start">
+            <IonItemOptions side="end">
                 <IonItemOption color="danger" expandable>
                     Borrar
                 </IonItemOption>
@@ -53,15 +53,10 @@ const Alertas: React.FC = () => {
                 <IonIcon icon={checkmarkSharp}/><IonLabel><b>Nuevo turno asignado</b></IonLabel>
             </IonItem>
 
-            <IonItemOptions side="end">
-                <IonItemOption color="tertiary" expandable>
-                    Archivar
-                </IonItemOption>
-            </IonItemOptions>
         </IonItemSliding>
 
         <IonItemSliding>
-            <IonItemOptions side="start">
+            <IonItemOptions side="end">
                 <IonItemOption color="danger" expandable>
                     Borrar
                 </IonItemOption>
@@ -71,15 +66,10 @@ const Alertas: React.FC = () => {
                 <IonIcon icon={checkmarkSharp}/><IonLabel><b>Chequeá tu VTV</b></IonLabel>
             </IonItem>
 
-            <IonItemOptions side="end">
-                <IonItemOption color="tertiary" expandable>
-                    Archivar
-                </IonItemOption>
-            </IonItemOptions>
         </IonItemSliding>
 
         <IonItemSliding>
-            <IonItemOptions side="start">
+            <IonItemOptions side="end">
                 <IonItemOption color="danger" expandable>
                     Borrar
                 </IonItemOption>
@@ -87,24 +77,8 @@ const Alertas: React.FC = () => {
             <IonItem>
                 <IonIcon icon={checkmarkSharp}/><IonLabel><b>Revisa la vigencia del seguro</b></IonLabel>
             </IonItem>
-            <IonItemOptions side="end">
-                <IonItemOption color="tertiary" expandable>
-                    Archivar
-                </IonItemOption>
-            </IonItemOptions>
+
         </IonItemSliding>
-        <IonGrid>
-            <IonRow>
-                <IonCol >
-
-                    <IonButton style={{marginTop:'80px'}} size={'small'} fill={'outline'}>
-                        <IonIcon icon={archive}/>
-                    </IonButton>
-                </IonCol>
-
-            </IonRow>
-
-        </IonGrid>
 
     </IonContent>
 </IonPage>

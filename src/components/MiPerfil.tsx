@@ -57,13 +57,6 @@ const MiPerfil: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonContent scrollEvents={true} scroll-y={true} >
-          <IonGrid style={{width:'100%'}}>
-            <IonRow className="ion-align-items-center">
-              <IonCol size="12" offset="8" className="ion-align-self-center">
-                <IonButton fill='outline' size='small'>Editar</IonButton>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
           <img className="centrada" src={ImagenPerfil} alt="centered image" width="100" height="100" />
           <IonList>
             <IonItem  >

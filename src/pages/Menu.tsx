@@ -49,6 +49,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import '../theme/variables.css';
+import Documentos from "../components/Documentos";
 
 
 
@@ -68,13 +69,14 @@ const Menu: React.FC = () => {
                 <Alertas />
               </Route>
 
-
-
-              <Route exact path="/">
+              <Route exact path="/menu">
                 {/* <Redirect to="/tab1" /> */}
                 <Redirect to="/alertas" />
-
               </Route>
+              <Route exact path={'/documentos'}>
+                <Documentos/>
+              </Route>
+
 
 
             </IonRouterOutlet>
@@ -89,9 +91,6 @@ const Menu: React.FC = () => {
                 <IonIcon icon={calendar} />
                 <IonLabel>Turnos</IonLabel>
               </IonTabButton>
-
-
-
 
               <IonTabButton tab="alertas" href="/alertas">
                 <IonIcon icon={notifications} />

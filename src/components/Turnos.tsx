@@ -110,6 +110,7 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
                         </IonCard>
 
                         <IonButton  onClick={() => setShowModal(false)}>Cerrar</IonButton>
+                        <IonButton style={{paddingTop:'10px'}} fill={'clear'}>Cancelar turno</IonButton>
                     </div>
 
                 </IonModal>

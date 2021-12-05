@@ -42,7 +42,7 @@ import './App.css'
 import ImagenFly from "./images/takecarlogo.jpg"
 import Home from "./components/Home";
 import Construccion from './components/Construccion';
-
+import Documentos from './components/Documentos';
 const App: React.FC = () => (
     <UsuarioState>
       <IonApp className="todo">
@@ -73,12 +73,13 @@ const App: React.FC = () => (
           </IonMenu>
 
           <IonRouterOutlet id="scheduleAppM1">
-            {/*<Route path="/" component={Login} exact/>*/}
-            <Route path="/" component={Menu} exact/>
+            <Route path="/" component={Login} exact/>
+            <Route path="/menu" component={Menu} exact/>
             <Route path="/miperfil" component={MiPerfil} exact/>
             <Route path="/tab6" component={Tab6} exact/>
             <Route path="/home" component={Home} exact/>
             <Route path="/construccion" component={Construccion} exact/>
+            <Route path="/docs" component={Documentos} exact/>
             <Redirect to="/home"/>
           </IonRouterOutlet>
           s
