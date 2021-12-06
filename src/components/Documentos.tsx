@@ -91,18 +91,7 @@ const Documentos: React.FC = () => {
                                     <IonLabel>Registro</IonLabel>
                                 </IonItem>
                             </IonRadioGroup>
-                            <IonItem>
-                                <IonInput placeholder={'Titular'}/>
-                            </IonItem>
-                            <IonItem>
-                                <IonInput placeholder={'Fecha de vencimiento'}/>
-                            </IonItem>
-
-                            <IonButton size={'small'}   fill={'clear'} style={{width:'100%'}}>
-                                {/* eslint-disable-next-line react/jsx-no-undef */}
-                                <IonIcon icon={cloudUpload}/>
-                                Subir archivo
-                            </IonButton>
+                            <input style={{padding:'8px'}} type={'file'}/>
                             {/* eslint-disable-next-line react/jsx-no-undef */}
                         </IonCard>
 

@@ -52,6 +52,9 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
 
     const alertHandler = (newState: string) =>{
         props.setNewStatus(props.turno.id, newState).then()
+        if(newState === 'rechazado'){
+            setShowModalNuevaFecha(true)
+        }
     }
 
     const estadoTurno = () => {
@@ -66,6 +69,14 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
         }
     }
 
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     // @ts-ignore
     // @ts-ignore
     return (
@@ -110,7 +121,7 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
                         </IonCard>
 
                         <IonButton  onClick={() => setShowModal(false)}>Cerrar</IonButton>
-                        <IonButton style={{paddingTop:'10px'}} fill={'clear'}>Cancelar turno</IonButton>
+                        <IonButton style={{paddingTop:'10px'}} fill={'clear'} onClick={ () => props.turno.estado = 'pendiente'}>Cancelar turno</IonButton>
                     </div>
 
                 </IonModal>
