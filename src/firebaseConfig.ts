@@ -1,7 +1,7 @@
 // import {firebase} from 'firebase';
 import 'firebase/firestore';
-import { initializeApp } from 'firebase/app'
-import { getFirestore,collection, getDocs, getDoc, updateDoc, doc, addDoc, query, where} from "firebase/firestore/lite";
+import {initializeApp} from 'firebase/app'
+import {collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore/lite";
 
 const config = {
     apiKey: "AIzaSyB_w39ZQY_nGOGYwkdGvfMI0e2CSGIsgqw",
@@ -45,7 +45,7 @@ export const fetchTurnos = async () =>{
 const isTurno = async (turnoFiltrado: string, turno:any) => {
     const turnoSnapshot = await getDoc(turno);
     if (turnoSnapshot.exists()){
-        console.log(`turno found ${turnoSnapshot.id}, turno filtrado ${turnoFiltrado}`)
+        // console.log(`turno found ${turnoSnapshot.id}, turno filtrado ${turnoFiltrado}`)
         return turnoSnapshot.id === turnoFiltrado
     }
 }
@@ -56,7 +56,7 @@ export const rechazarTurno = async (turnoId: string) => {
     const userQuery = query(usersRef, where("username","==", "7777777"));
     const userSnapshot = await getDocs(userQuery);
     const userRef = doc(db,'usuarios', userSnapshot.docs[0].id)
-    await updateDoc(turnoRef, {estado:"rechazado"})
+    await updateDoc(turnoRef, {estado:"rechazado", cliente:null})
 
     let turnos = userSnapshot.docs[0].data().turnos
     let turnos_aux: any[] = []
@@ -68,6 +68,7 @@ export const rechazarTurno = async (turnoId: string) => {
     }));
     console.log(`turnos aux: ${turnos_aux}`)
     await updateDoc(userRef, {turnos: turnos_aux})
+    await fetchTurnosDisponibles();
 }
 
 export const confirmarTurno = async (turnoId: string) => {
@@ -75,6 +76,35 @@ export const confirmarTurno = async (turnoId: string) => {
     console.log(turnoRef);
     await updateDoc(turnoRef, {estado: 'confirmado'})
 }
+
+export const fetchTurnosDisponibles = async () => {
+    const turnosCollection = collection(db, 'turnos');
+    const turnoQuery = query(turnosCollection, where('cliente','==', null));
+    const turnoRef = await getDocs(turnoQuery);
+
+    let turnos: any[] = []
+    await Promise.all(
+        turnoRef.docs.map(t => turnos = [...turnos, {id: t.id, ...t.data()}])
+    )
+    // console.log('Turnos:');
+    // console.log(turnos);
+    return turnos
+}
+
+export const tomarTurno = async (turnoId: string) => {
+    const turnoRef = doc(db, 'turnos', turnoId);
+    const usersRef = collection(db, 'usuarios')
+    const userQuery = query(usersRef, where("username","==", "7777777"));
+    const userSnapshot = await getDocs(userQuery);
+    const userRef = doc(db,'usuarios', userSnapshot.docs[0].id)
+    await updateDoc(turnoRef, {estado:"confirmado", cliente:userRef})
+
+    let turnos_aux: any[] = userSnapshot.docs[0].data().turnos
+    turnos_aux = [turnoRef, ...turnos_aux]
+    console.log(`turnos aux: ${turnos_aux}`)
+    await updateDoc(userRef, {turnos: turnos_aux})
+}
+
 
 // export const descarga= firebase.firestore();
 

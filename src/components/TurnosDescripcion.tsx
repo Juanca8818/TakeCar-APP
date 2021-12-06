@@ -4,7 +4,7 @@ import Turnos from './Turnos'
 import './TurnosDescripcion.css';
 
 import UsuarioContext from '../context/UsuarioContext';
-import {confirmarTurno, fetchTurnos, rechazarTurno} from "../firebaseConfig";
+import {confirmarTurno, fetchTurnos, fetchTurnosDisponibles, rechazarTurno, tomarTurno} from "../firebaseConfig";
 // @ts-ignore
 const TurnosDescripcion=(props) => {
 
@@ -52,16 +52,16 @@ const TurnosDescripcion=(props) => {
       let turnoAux = turno;
       // @ts-ignore
       if (turno.id === turnoId){
-        console.log('turno encontrado')
+        // console.log('turno encontrado')
         if (newStatus === 'confirmado') {
           await confirmarTurno(turnoId)
-          console.log('confirmado')
+          // console.log('confirmado')
           // @ts-ignore
           turnoAux.estado = 'confirmado';
         }
         else if (newStatus === 'rechazado'){
           await rechazarTurno(turnoId)
-          console.log('rechazado')
+          // console.log('rechazado')
           // @ts-ignore
           turnoAux.estado = 'rechazado';
 
