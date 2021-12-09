@@ -60,7 +60,7 @@ const MiPerfil: React.FC = () => {
           <img className="centrada" src={ImagenPerfil} alt="centered image" width="100" height="100" />
           <IonList>
             <IonItem  >
-              <IonLabel><b>Nombre: Benito</b> </IonLabel>
+              <IonLabel><b>Nombre: Juan</b> </IonLabel>
             </IonItem>
             <IonItem  >
               <IonLabel><b>Apellido: Gomez </b></IonLabel>

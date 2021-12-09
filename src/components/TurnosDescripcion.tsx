@@ -45,7 +45,7 @@ const TurnosDescripcion=(props) => {
     // guardarVuelos(vuelosTotales.filter((vu:any)=>vu.id!=='infoPerfil'))
 
   }
-  const setNewStatus = async (turnoId: string, newStatus: string) =>{
+  const setNewStatus = async (turnoId: string, newStatus: string, turnoATomar: string) =>{
     props.loadingHandler(true);
     let aux: any[] | ((prevState: never[]) => never[]) = [];
     await Promise.all(turnos.map(async turno => {
@@ -60,11 +60,12 @@ const TurnosDescripcion=(props) => {
           turnoAux.estado = 'confirmado';
         }
         else if (newStatus === 'rechazado'){
+          await tomarTurno(turnoATomar)
           await rechazarTurno(turnoId)
-          // console.log('rechazado')
+          console.log(`rechazado ${turnoId}`)
           // @ts-ignore
           turnoAux.estado = 'rechazado';
-
+          obtener()
         }
         else {
           // @ts-ignore
@@ -91,6 +92,7 @@ const TurnosDescripcion=(props) => {
                 <Turnos
                     turno={turno}
                     setNewStatus={setNewStatus}
+                    setLoading={props.loadingHandler}
                 />
             ))}
           </IonContent>

@@ -31,9 +31,10 @@ import UsuarioContext from '../context/UsuarioContext';
 
 import {capitalize} from "../utils";
 import {IonBackButtonInner} from "@ionic/react/dist/types/components/inner-proxies";
+import {fetchTurnosDisponibles, tomarTurno} from "../firebaseConfig";
 
 
-const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
+const Turnos: React.FC<{ turno: any, setNewStatus: any, setLoading: any }> = props => {
 
 //cambiar el valor a true para que salga el aviso//
     const [showAlert2, setShowAlert2] = useState(false);
@@ -47,16 +48,23 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
     const [elModal, guardarElModal] = useState(true);
     const [present] = useIonAlert();
     const [showModalNuevaFecha, setShowModalNuevaFecha] = useState(false)
-
+    const [turnosDisponibles, setTurnosDisponibles] = useState<any[]>([])
+    const [turnoSeleccionado, setTurnoSeleccionado] = useState('')
     console.log(props.turno)
 
     const alertHandler = (newState: string) =>{
-        props.setNewStatus(props.turno.id, newState).then()
         if(newState === 'rechazado'){
             setShowModalNuevaFecha(true)
+            props.setLoading(true)
+            fetchTurnosDisponibles().then(r => setTurnosDisponibles(r)).then(e => props.setLoading(false))
+        }else{
+            props.setNewStatus(props.turno.id, newState).then()
         }
     }
-
+    const turnoParser = (t: any) => {
+        // @ts-ignore
+        return `${t.fechaCorta} | ${t.hora}`
+    }
     const estadoTurno = () => {
         const estado = props.turno.estado;
         if (estado === 'confirmado'){
@@ -69,6 +77,8 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
         }
     }
 
+    // @ts-ignore
+    // @ts-ignore
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
@@ -121,7 +131,10 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
                         </IonCard>
 
                         <IonButton  onClick={() => setShowModal(false)}>Cerrar</IonButton>
-                        <IonButton style={{paddingTop:'10px'}} fill={'clear'} onClick={ () => props.turno.estado = 'pendiente'}>Cancelar turno</IonButton>
+                        <IonButton style={{paddingTop:'10px'}} fill={'clear'} onClick={ () => {
+                            props.turno.estado = 'pendiente';
+                            setShowModal(false);
+                        }}>Cancelar turno</IonButton>
                     </div>
 
                 </IonModal>
@@ -171,53 +184,30 @@ const Turnos: React.FC<{ turno: any, setNewStatus: any }> = props => {
                     </IonHeader>
                 <IonContent>
                     <IonList>
-                        <IonRadioGroup>
-                            {/*{turnos.map((turno:any)=>(*/}
+                        <IonRadioGroup value={turnoSeleccionado} onIonChange={(e) => setTurnoSeleccionado(e.detail.value)}>
+                            {turnosDisponibles.map(t =>
                             <IonItem>
-                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                                <IonRadio/>
-                            </IonItem>
-                            <IonItem>
-                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                                <IonRadio/>
-                            </IonItem>
-                            <IonItem>
-                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                                <IonRadio/>
-                            </IonItem><IonItem>
-                            <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                            <IonRadio/>
-                        </IonItem><IonItem>
-                            <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                            <IonRadio/>
-                        </IonItem>
-                            <IonItem>
-                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                                <IonRadio/>
-                            </IonItem>
-                            <IonItem>
-                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                                <IonRadio/>
-                            </IonItem><IonItem>
-                            <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                            <IonRadio/>
-                        </IonItem>
-                            <IonItem>
-                                <IonIcon slot="start" icon={calendar}/> <IonLabel>7/11/2021 - 13:00 hs</IonLabel>
-                                <IonRadio/>
-                            </IonItem>
 
-
-
-
-
-
-                            {/*}))}*/}
+                                <IonIcon slot="start" icon={calendar}/>
+                                <IonLabel>{turnoParser(t)}</IonLabel>
+                                <IonRadio value={t.id}/>
+                                </IonItem>)}
                         </IonRadioGroup>
 
                     </IonList>
                 </IonContent>
-                <IonButton onClick={() => setShowModalNuevaFecha(false)}>Confirmar</IonButton>
+                <IonButton onClick={() => {
+                    if (turnoSeleccionado) {
+                        props.setNewStatus(props.turno.id, 'rechazado', turnoSeleccionado).then()
+
+                    }
+                    else{
+                        props.setNewStatus(props.turno.id, 'rechazado').then()
+
+                    }
+                    setShowModalNuevaFecha(false);
+                }}>Confirmar</IonButton>
+
 
             </IonModal>
             <IonAlert

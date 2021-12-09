@@ -60,10 +60,13 @@ export const rechazarTurno = async (turnoId: string) => {
 
     let turnos = userSnapshot.docs[0].data().turnos
     let turnos_aux: any[] = []
+    console.log(`turno a rechazar: ${turnoId}`)
+    console.log(`turnos: ${turnos_aux}`)
+
     // @ts-ignore
     await Promise.all(turnos.map(async turno => {
         if (!await isTurno(turnoId, turno)){
-            turnos_aux = [turno, ...turnos_aux]
+            turnos_aux = [...turnos_aux, turno]
         }
     }));
     console.log(`turnos aux: ${turnos_aux}`)
@@ -92,6 +95,8 @@ export const fetchTurnosDisponibles = async () => {
 }
 
 export const tomarTurno = async (turnoId: string) => {
+    console.log(`turno a tomar: ${turnoId}`)
+
     const turnoRef = doc(db, 'turnos', turnoId);
     const usersRef = collection(db, 'usuarios')
     const userQuery = query(usersRef, where("username","==", "7777777"));
@@ -100,7 +105,7 @@ export const tomarTurno = async (turnoId: string) => {
     await updateDoc(turnoRef, {estado:"confirmado", cliente:userRef})
 
     let turnos_aux: any[] = userSnapshot.docs[0].data().turnos
-    turnos_aux = [turnoRef, ...turnos_aux]
+    turnos_aux = [...turnos_aux, turnoRef]
     console.log(`turnos aux: ${turnos_aux}`)
     await updateDoc(userRef, {turnos: turnos_aux})
 }
